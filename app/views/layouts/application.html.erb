@@ -38,10 +38,6 @@
 					  <%=link_to 'Login', new_session_path, class:"nav-link" %>
 					</li>
 				<% else %>
-					<%= image_tag "/person-outline.svg", style:"width:20px" %>
-					<li class="nav-item">
-						<%= link_to 'MyPage', member_path(session[:user_id]), class:"nav-link" %>
-					</li>
 					<%= image_tag "/exit-outline.svg", style:"width:20px" %>
 					<li class="nav-item">
 						<%= link_to 'Logout', session_path(session[:user_id]), method:"delete", class:"nav-link" %>
@@ -52,29 +48,36 @@
 			<div class="collapse navbar-collapse bg-light" id="navbarCollapse">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item active">
-						<a class="nav-link" href="#">Home</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">Link</a>
+						<%= link_to 'Home', root_path, class:"nav-link" %>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#">History</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">About Us</a>
+						<%= link_to 'About Us', about_index_path, class:"nav-link" %>
 					</li>
 				</ul>
 				<ul class="navbar-nav navbar-expand-sm">
-					<%= image_tag "/person-add-outline.svg", style:"width:20px" %>
-					<li class="nav-item">
-					  <%=link_to 'SignUp', new_member_path, class:"nav-link" %>
-					</li>
+					<% if !session[:user_id].nil? %>
+						<%= image_tag "/person-outline.svg", style:"width:20px" %>
+						<li class="nav-item">
+							<%= link_to 'MyPage', member_path(session[:user_id]), class:"nav-link" %>
+						</li>
+					<% else %>
+						<%= image_tag "/person-add-outline.svg", style:"width:20px" %>
+						<li class="nav-item">
+						  <%=link_to 'SignUp', new_member_path, class:"nav-link" %>
+						</li>
+					<% end %>
 				</ul>
 			</div>
 		</nav>	
 
 	
 	<div class="container-fluid" style="margin-top:10px">
+		<% if session[:user] %>
+			<h4>Current User: <%=Member.find(session[:user]).firstname%><h4>
+		<% end %>
 		<%= yield %>
 	</div>
 	

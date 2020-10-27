@@ -3,4 +3,6 @@ Rails.application.routes.draw do
 	
 	resources :members
 	resources :sessions, only:[:new, :create, :destroy]
+	
+	get 'about/index' => 'about#index'
 end
