@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
 	def create
-		member = Member.find_by(email:params[:email])
+		member = Member.find_by(email:params[:email].downcase)
 		if member.nil?
 			flash[:notice] = 'Input right e-mail to sign in'
 			redirect_to new_session_path
