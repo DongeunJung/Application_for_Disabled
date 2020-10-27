@@ -17,7 +17,7 @@
   </head>
 
   <body>
-	<div class="container">
+	
 		<nav class="navbar navbar-light bg-light">
 			
 			
@@ -33,10 +33,6 @@
 			
 			<ul class="navbar-nav navbar-expand-sm">
 				<% if session[:user_id].nil? %>
-					<%= image_tag "/person-add-outline.svg", style:"width:20px" %>
-					<li class="nav-item">
-					  <%=link_to 'SignUp', new_member_path, class:"nav-link" %>
-					</li>
 					<%= image_tag "/enter-outline.svg", style:"width:20px" %>
 					<li class="nav-item">
 					  <%=link_to 'Login', new_session_path, class:"nav-link" %>
@@ -68,11 +64,17 @@
 						<a class="nav-link" href="#">About Us</a>
 					</li>
 				</ul>
+				<ul class="navbar-nav navbar-expand-sm">
+					<%= image_tag "/person-add-outline.svg", style:"width:20px" %>
+					<li class="nav-item">
+					  <%=link_to 'SignUp', new_member_path, class:"nav-link" %>
+					</li>
+				</ul>
 			</div>
 		</nav>	
-	</div>
+
 	
-	<div class="container" style="margin-top:10px">
+	<div class="container-fluid" style="margin-top:10px">
 		<%= yield %>
 	</div>
 	
