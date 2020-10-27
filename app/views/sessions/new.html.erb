@@ -1,0 +1,15 @@
+<%= form_tag sessions_path do %>
+	<% flash.each do |name, msg| %>
+		<div class="alert alert-warning"><%=msg%></div>
+	<% end %>
+
+	<label>E-mail</label>
+	<input type="email" name="email" class="form-control">
+	
+	<label>Password</label>
+	<input type="password" name="password" class="form-control">
+	
+	<br>
+	
+	<input type="submit" value="Submit" class="btn btn-primary form-control">
+<% end %>

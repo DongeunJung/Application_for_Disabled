@@ -1,0 +1,30 @@
+<%= form_with(model: member, local: true) do |form| %>
+	<div class="field">
+		<%= form.label :"Firstname:" %>
+		<%= form.text_field :firstname , class:"form-control"%>
+	</div>
+	
+	<div class="field">
+		<%= form.label :"Lastname:" %>
+		<%= form.text_field :lastname , class:"form-control"%>
+	</div>
+	
+	<div class="field">
+		<%= form.label :"E-mail:" %>
+		<%= form.email_field :lastname , class:"form-control"%>
+	</div>
+	
+	<div class="field">
+		<%= form.label :"Password:" %>
+		<%= form.password_field :password, class:"form-control" %>
+	</div>
+
+	<div class="field">
+		<%= form.label :"Password Confirmation:" %>
+		<%= form.password_field :password_confirmation, class:"form-control" %>
+	</div>
+	
+	<div class="actions" style="margin-top:20px">
+		<%= form.submit :"Submit", class:"form-control btn btn-primary" %>
+	</div>
+<% end %>

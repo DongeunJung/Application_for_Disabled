@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Testapp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+	<div class="container">
+		<nav class="navbar navbar-light bg-light">
+			
+			
+			<button class="navbar-toggler" type="button" 
+				data-toggle="collapse" data-target="#navbarCollapse" 
+				aria-controls="navbarCollapse" aria-expanded="false" 
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			
+			
+			<%= link_to 'testApp', root_path, class:"navbar-brand"%>
+			
+			<ul class="navbar-nav navbar-expand-sm">
+				<% if session[:user_id].nil? %>
+					<%= image_tag "/person-add-outline.svg", style:"width:20px" %>
+					<li class="nav-item">
+					  <%=link_to 'SignUp', new_member_path, class:"nav-link" %>
+					</li>
+					<%= image_tag "/enter-outline.svg", style:"width:20px" %>
+					<li class="nav-item">
+					  <%=link_to 'Login', new_session_path, class:"nav-link" %>
+					</li>
+				<% else %>
+					<%= image_tag "/person-outline.svg", style:"width:20px" %>
+					<li class="nav-item">
+						<%= link_to 'MyPage', member_path(session[:user_id]), class:"nav-link" %>
+					</li>
+					<%= image_tag "/exit-outline.svg", style:"width:20px" %>
+					<li class="nav-item">
+						<%= link_to 'Logout', session_path(session[:user_id]), method:"delete", class:"nav-link" %>
+					</li>
+				<% end %>
+			</ul>
+			
+			<div class="collapse navbar-collapse bg-light" id="navbarCollapse">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="#">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Link</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">History</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">About Us</a>
+					</li>
+				</ul>
+			</div>
+		</nav>	
+	</div>
+	
+	<div class="container" style="margin-top:10px">
+		<%= yield %>
+	</div>
+	
+  </body>
+</html>
