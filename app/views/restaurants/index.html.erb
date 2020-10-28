@@ -6,11 +6,7 @@
 				<th>ID</th>
 				<th>Name</th>
 				<th>Address</th>
-				<th>Full Address</th>
-				<th>Accessible</th>
-				<th>Parking</th>
-				<th>Isflat</th>
-				<th>Elevator</th>
+
 				<th>create</th>
 			</tr>
 		</thead>
@@ -23,14 +19,9 @@
 					<td><%=output[0][1]%></td>
 					<td><%=output[1][1]%></td>
 					<td><%=output[2][1]%></td>
-					<td><%=output[3][1]%></td>
-						
-					<td><%=output[7][1]%></td>
-					<td><%=output[8][1]%></td>
-					<td><%=output[9][1]%></td>
-					<td><%=output[10][1]%></td>
+				
 					<td>
-						<%=form_tag restaurants_create_path do %>
+						<%=form_tag restaurants_path do %>
 							<input type="hidden" name="id" value="<%=output[0][1]%>">
 							<input type="hidden" name="name" value="<%=output[1][1]%>">
 							<input type="hidden" name="address" value="<%=output[2][1]%>">
@@ -42,6 +33,12 @@
 							<input type="hidden" name="elevator" value="<%=output[10][1]%>">
 							
 							<input type="submit" value="create" class="btn btn-warning">
+						<% end %><br>
+					</td>
+					<td>
+						<% restr = Restr.find_by(restrid:output[0][1]) %>
+						<% if !restr.nil? %>
+							<%= link_to 'Show', restaurant_path(restr.id), class:"btn btn-info"%>
 						<% end %>
 					</td>
 				</tr>
