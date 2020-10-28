@@ -7,4 +7,5 @@ Rails.application.routes.draw do
 	get 'about/index' => 'about#index'
 	
 	get 'restaurants/index' => 'restaurants#index'
+	post 'restaurants/create' => 'restaurants#create'
 end

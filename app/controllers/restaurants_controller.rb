@@ -5,4 +5,16 @@ class RestaurantsController < ApplicationController
 		hash4 = hash[1].to_a
 		@hash5 = hash4[2][1]
 	end
+	
+	def create
+		Restr.create(restrid:params[:id], name:params[:name], address:params[:address])
+		
+		restr = Restr.find_by(restrid:params[:id])
+		
+		if !restr.nil?
+			RestrDetail.create(restr_id:restr.id, fulladd:params[:fulladd], 
+							   accessible:params[:access], parking:params[:park], isflat:params[:flat], elevator:params[:elev])
+		end
+		redirect_to :root
+	end
 end

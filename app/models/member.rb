@@ -1,7 +1,7 @@
 class Member < ApplicationRecord
-	has_one :detail
-	has_many :posts
-	has_many :comments
+	#has_one :detail
+	#has_many :posts
+	#has_many :comments
 	
 	has_secure_password
 	before_save {self.email = email.downcase}

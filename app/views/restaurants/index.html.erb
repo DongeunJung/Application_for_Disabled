@@ -11,6 +11,7 @@
 				<th>Parking</th>
 				<th>Isflat</th>
 				<th>Elevator</th>
+				<th>create</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -18,13 +19,31 @@
 				<tr>
 					<%output = h.to_a%>
 					<td><%=index+1%></td>
-					<% 4.times do |i| %>
-						<td><%=output[i][1]%></td>
-					<% end %>
+					
+					<td><%=output[0][1]%></td>
+					<td><%=output[1][1]%></td>
+					<td><%=output[2][1]%></td>
+					<td><%=output[3][1]%></td>
+						
 					<td><%=output[7][1]%></td>
 					<td><%=output[8][1]%></td>
 					<td><%=output[9][1]%></td>
 					<td><%=output[10][1]%></td>
+					<td>
+						<%=form_tag restaurants_create_path do %>
+							<input type="hidden" name="id" value="<%=output[0][1]%>">
+							<input type="hidden" name="name" value="<%=output[1][1]%>">
+							<input type="hidden" name="address" value="<%=output[2][1]%>">
+							
+							<input type="hidden" name="fulladd" value="<%=output[3][1]%>">
+							<input type="hidden" name="accessible" value="<%=output[7][1]%>">
+							<input type="hidden" name="parking" value="<%=output[8][1]%>">
+							<input type="hidden" name="isflat" value="<%=output[9][1]%>">
+							<input type="hidden" name="elevator" value="<%=output[10][1]%>">
+							
+							<input type="submit" value="create" class="btn btn-warning">
+						<% end %>
+					</td>
 				</tr>
 			<% end %>
 		</tbody>

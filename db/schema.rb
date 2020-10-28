@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2020_10_28_133152) do
   end
 
   create_table "restr_details", force: :cascade do |t|
+    t.integer "restr_id"
     t.string "fulladd"
     t.string "accessible"
     t.string "parking"
