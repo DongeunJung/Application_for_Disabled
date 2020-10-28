@@ -1,0 +1,17 @@
+<h1>Restaurants#show</h1>
+
+<% id = params[:id] %>
+<% restr = Restr.find(id) %>
+<%= restr.restrid %>
+<%= restr.name %>
+<%= restr.address %>
+
+<% restrd = RestrDetail.find_by(restr_id:restr.id) %>
+
+<% if !restrd.nil? %>
+	<%= restrd.fulladd %>
+	<%= restrd.accessible %>
+	<%= restrd.parking %>
+	<%= restrd.isflat %>
+	<%= restrd.elevator %>
+<% end %>

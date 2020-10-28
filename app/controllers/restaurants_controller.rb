@@ -12,8 +12,12 @@ class RestaurantsController < ApplicationController
 		restr = Restr.find_by(restrid:params[:id])
 		
 		if !restr.nil?
-			RestrDetail.create(restr_id:restr.id, fulladd:params[:fulladd], 
-							   accessible:params[:access], parking:params[:park], isflat:params[:flat], elevator:params[:elev])
+			RestrDetail.create(restr_id:restr.id, 
+							   fulladd:params[:fulladd], 
+							   accessible:params[:accessible], 
+							   parking:params[:parking], 
+							   isflat:params[:isflat], 
+							   elevator:params[:elevator])
 		end
 		redirect_to :root
 	end
