@@ -5,4 +5,6 @@ Rails.application.routes.draw do
 	resources :sessions, only:[:new, :create, :destroy]
 	
 	get 'about/index' => 'about#index'
+	
+	get 'restaurants/index' => 'restaurants#index'
 end

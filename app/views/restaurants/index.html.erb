@@ -1,0 +1,30 @@
+<div class="container-fluid">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Address</th>
+				<th>Full Address</th>
+				<th>Accessible</th>
+				<th>Parking</th>
+				<th>Isflat</th>
+				<th>Elevator</th>
+			</tr>
+		</thead>
+		<tbody>
+			<%@hash5.each do |h|%>
+				<tr>
+					<%output = h.to_a%>
+					<% 4.times do |i| %>
+						<td><%=output[i][1]%></td>
+					<% end %>
+					<td><%=output[7][1]%></td>
+					<td><%=output[8][1]%></td>
+					<td><%=output[9][1]%></td>
+					<td><%=output[10][1]%></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
