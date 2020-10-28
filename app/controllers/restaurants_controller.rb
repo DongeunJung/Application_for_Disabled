@@ -19,6 +19,5 @@ class RestaurantsController < ApplicationController
 							   isflat:params[:isflat], 
 							   elevator:params[:elevator])
 		end
-		redirect_to :root
 	end
 end
