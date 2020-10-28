@@ -1,0 +1,2 @@
+class Restr < ApplicationRecord
+end
