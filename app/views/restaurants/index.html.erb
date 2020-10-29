@@ -15,9 +15,10 @@
 					<td><%=r.restrid%></td>
 					<td><%=r.name%></td>
 					<td><%=r.address%></td>
-					<% rd = r.restr_detail %>
-					<td><%= rd.fulladd %></td>
-					<td><%=link_to '자세히보기', restaurant_path(r.id), class:"btn btn-light" %></td>
+
+					<td>
+						<%=link_to '자세히보기', restaurant_path(r.id), class:"btn btn-light" %>
+					</td>
 				</tr>
 			<% end %>
 		</tbody>
