@@ -6,41 +6,18 @@
 				<th>ID</th>
 				<th>Name</th>
 				<th>Address</th>
-
-				<th>create</th>
 			</tr>
 		</thead>
 		<tbody>
-			<%@hash5.each_with_index do |h, index|%>
+			<% @restrs.each_with_index do |r,index| %>
 				<tr>
-					<%output = h.to_a%>
 					<td><%=index+1%></td>
-					
-					<td><%=output[0][1]%></td>
-					<td><%=output[1][1]%></td>
-					<td><%=output[2][1]%></td>
-				
-					<td>
-						<%=form_tag restaurants_path do %>
-							<input type="hidden" name="id" value="<%=output[0][1]%>">
-							<input type="hidden" name="name" value="<%=output[1][1]%>">
-							<input type="hidden" name="address" value="<%=output[2][1]%>">
-							
-							<input type="hidden" name="fulladd" value="<%=output[3][1]%>">
-							<input type="hidden" name="accessible" value="<%=output[7][1]%>">
-							<input type="hidden" name="parking" value="<%=output[8][1]%>">
-							<input type="hidden" name="isflat" value="<%=output[9][1]%>">
-							<input type="hidden" name="elevator" value="<%=output[10][1]%>">
-							
-							<input type="submit" value="create" class="btn btn-warning">
-						<% end %><br>
-					</td>
-					<td>
-						<% restr = Restr.find_by(restrid:output[0][1]) %>
-						<% if !restr.nil? %>
-							<%= link_to 'Show', restaurant_path(restr.id), class:"btn btn-info"%>
-						<% end %>
-					</td>
+					<td><%=r.restrid%></td>
+					<td><%=r.name%></td>
+					<td><%=r.address%></td>
+					<% rd = r.restr_detail %>
+					<td><%= rd.fulladd %></td>
+					<td><%=link_to '자세히보기', restaurant_path(r.id), class:"btn btn-light" %></td>
 				</tr>
 			<% end %>
 		</tbody>
