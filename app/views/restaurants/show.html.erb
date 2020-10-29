@@ -1,0 +1,13 @@
+<% id = params[:id] %>
+<% restr = Restr.find(id) %>
+<% detail = RestrDetail.find_by(restr_id:id) %>
+
+<%= restr.restrid %><br>
+<%= restr.name %><br>
+<%= restr.address %><br>
+
+<%= detail.fulladd%><br>
+<%= detail.accessible%><br>
+<%= detail.parking %><br>
+<%= detail.isflat %><br>
+<%= detail.elevator %><br>
