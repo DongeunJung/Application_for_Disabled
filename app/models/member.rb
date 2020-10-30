@@ -1,4 +1,5 @@
 class Member < ApplicationRecord
+	has_many :histories
 	#has_one :detail
 	#has_many :posts
 	#has_many :comments

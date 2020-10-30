@@ -6,6 +6,7 @@
 				<th>ID</th>
 				<th>Name</th>
 				<th>Address</th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -25,4 +26,40 @@
 	</table>
 	
 	<%= will_paginate @restrs %>
+	
+	<ul class="pagination justify-content-center">
+		<li class="page-item">
+			<%=link_to '1', restaurants_path(:page=>1), class:"page-link"%>
+		</li>
+		<li class="page-item">
+			<%=link_to '2', restaurants_path(:page=>2), class:"page-link"%>
+		</li>
+		<li class="page-item">
+			<%=link_to '3', restaurants_path(:page=>3), class:"page-link"%>
+		</li>
+		<li class="page-item">
+			<%=link_to '4', restaurants_path(:page=>4), class:"page-link"%>
+		</li>
+		<li class="page-item">
+			<%=link_to '5', restaurants_path(:page=>5), class:"page-link"%>
+		</li>
+		<li class="page-item">
+			<%=link_to '6', restaurants_path(:page=>6), class:"page-link"%>
+		</li>
+		<li class="page-item">
+			<%=link_to '7', restaurants_path(:page=>7), class:"page-link"%>
+		</li>
+		<li class="page-item">
+			<%=link_to '8', restaurants_path(:page=>8), class:"page-link"%>
+		</li>
+		<li class="page-item">
+			<%=link_to '9', restaurants_path(:page=>9), class:"page-link"%>
+		</li>
+		<li class="page-item">
+			<%=link_to '10', restaurants_path(:page=>10), class:"page-link"%>
+		</li>
+		<li class="page-item">
+			<%=link_to '11', restaurants_path(:page=>11), class:"page-link"%>
+		</li>
+	</ul>
 </div>

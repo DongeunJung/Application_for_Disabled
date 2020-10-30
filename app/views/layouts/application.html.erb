@@ -50,11 +50,18 @@
 					<li class="nav-item active">
 						<%= link_to 'Home', root_path, class:"nav-link" %>
 					</li>
-					<li class="nav-item active">
+					<li class="nav-item">
+						<%= link_to 'Map', map_index_path, class:"nav-link" %>
+					</li>
+					<li class="nav-item">
 						<%= link_to 'Restaurants', restaurants_path, class:"nav-link" %>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">History</a>
+						<% if session[:user_id].nil? %>
+							<%=link_to 'Historys', new_session_path, class:"nav-link" %>
+						<% else %>
+							<%=link_to 'Historys', historys_path, class:"nav-link" %>
+						<% end %>
 					</li>
 					<li class="nav-item">
 						<%= link_to 'About Us', about_index_path, class:"nav-link" %>

@@ -2,12 +2,12 @@
 <% restr = Restr.find(id) %>
 <% detail = RestrDetail.find_by(restr_id:id) %>
 
-<%= restr.restrid %><br>
-<%= restr.name %><br>
-<%= restr.address %><br>
+<div class="container">
+	<h3><%= restr.name %></h3>
 
-<%= detail.fulladd%><br>
-<%= detail.accessible%><br>
-<%= detail.parking %><br>
-<%= detail.isflat %><br>
-<%= detail.elevator %><br>
+	Full address : <%= detail.fulladd%><br>
+	Accessible : <%= detail.accessible%><br>
+	Parking : <%= detail.parking %><br>
+	Isflat : <%= detail.isflat %><br>
+	Elevator : <%= detail.elevator %><br>
+</div>

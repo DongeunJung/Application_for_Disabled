@@ -1,0 +1,11 @@
+<h1>History#index</h1>
+
+<% @histories.each do |h| %>
+	<div class="card card-body bg-light" style="margin:10px">
+		<% id = h.restr_id %>
+		<% restr = Restr.find(id) %>
+		<% detail = restr.restr_detail %>
+		<h4><%= restr.name %></h4>
+		<p><%= detail.fulladd %></p>
+	</div>	
+<% end %>
