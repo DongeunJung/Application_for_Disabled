@@ -1,9 +1,9 @@
 class CreateRestrs < ActiveRecord::Migration[6.0]
   def change
     create_table :restrs do |t|
-      t.integer :restrid
+      t.integer :seq
       t.string :name
-      t.string :address
+      t.string :gu
 
       t.timestamps
     end

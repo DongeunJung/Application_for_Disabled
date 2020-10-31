@@ -1,6 +1,5 @@
-class Restr < ApplicationRecord
-	has_one :restr_detail
-	has_many :histories
+class Accom < ApplicationRecord
+	has_one :accom_detail
 	
 	validates:seq, presence:true, uniqueness:true
 	validates:name, presence:true

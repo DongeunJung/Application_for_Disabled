@@ -10,10 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_30_143258) do
+ActiveRecord::Schema.define(version: 2020_10_31_102049) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "accom_details", force: :cascade do |t|
+    t.integer "accom_id"
+    t.string "address"
+    t.string "telephone"
+    t.string "homepage"
+    t.string "accessible"
+    t.string "parking"
+    t.string "isflat"
+    t.string "elevator"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "accoms", force: :cascade do |t|
+    t.integer "seq"
+    t.string "name"
+    t.string "gu"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "histories", force: :cascade do |t|
     t.integer "member_id"
@@ -33,7 +54,9 @@ ActiveRecord::Schema.define(version: 2020_10_30_143258) do
 
   create_table "restr_details", force: :cascade do |t|
     t.integer "restr_id"
-    t.string "fulladd"
+    t.string "address"
+    t.string "telephone"
+    t.string "homepage"
     t.string "accessible"
     t.string "parking"
     t.string "isflat"
@@ -43,9 +66,9 @@ ActiveRecord::Schema.define(version: 2020_10_30_143258) do
   end
 
   create_table "restrs", force: :cascade do |t|
-    t.integer "restrid"
+    t.integer "seq"
     t.string "name"
-    t.string "address"
+    t.string "gu"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

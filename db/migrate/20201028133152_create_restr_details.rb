@@ -2,7 +2,11 @@ class CreateRestrDetails < ActiveRecord::Migration[6.0]
   def change
     create_table :restr_details do |t|
 	  t.integer :restr_id
-      t.string :fulladd
+	  
+      t.string :address
+	  t.string :telephone
+	  t.string :homepage
+	  
       t.string :accessible
       t.string :parking
       t.string :isflat

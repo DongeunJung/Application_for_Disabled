@@ -13,9 +13,9 @@
 			<% @restrs.each_with_index do |r,index| %>
 				<tr>
 					<td><%=index+1%></td>
-					<td><%=r.restrid%></td>
+					<td><%=r.seq%></td>
 					<td><%=r.name%></td>
-					<td><%=r.address%></td>
+					<td><%=r.gu%></td>
 
 					<td>
 						<%=link_to '자세히보기', restaurant_path(r.id), class:"btn btn-light" %>

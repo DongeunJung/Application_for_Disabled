@@ -1,0 +1,28 @@
+<div class="container-fluid">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th></th>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Address</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @accoms.each_with_index do |a,index| %>
+				<tr>
+					<td><%=index+1%></td>
+					<td><%=a.seq%></td>
+					<td><%=a.name%></td>
+					<td><%=a.gu%></td>
+					<td><%=link_to '자세히보기', accomodation_path(a.id), class:"btn btn-light" %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+	
+	<ul class="pagination justify-content-center">
+		<%= will_paginate @accoms %>
+	</ul>
+</div>

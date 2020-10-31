@@ -22,3 +22,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+* 서울특별시 장애인 관광음식점 정보(http://openapi.seoul.go.kr:8088/51565a7a656373633636764e475464/xml/touristFoodInfo/1/414/)
+
+* 서울특별시 장애인 관광숙박 정보(http://openapi.seoul.go.kr:8088/497265634e637363383553746f536b/xml/stayLodgeInfo/1/395/)
