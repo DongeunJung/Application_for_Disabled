@@ -1,0 +1,14 @@
+<% id = params[:id] %>
+<% accom = Accom.find(id) %>
+<% detail = AccomDetail.find_by(accom_id:id) %>
+
+<div class="container">
+	<h3><%=accom.name%></h3>
+	Address : <%=detail.address%><br>
+	Telephone : <%=detail.telephone%><br>
+	Homepage : <%=detail.homepage%><br>
+	Accessible : <%=detail.accessible%><br>
+	Parking : <%=detail.parking%><br>
+	Isflat : <%=detail.isflat%><br>
+	Elevator : <%=detail.elevator%><br>
+</div>
