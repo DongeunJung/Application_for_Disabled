@@ -22,7 +22,7 @@
 						<% if !session[:user_id].nil? %>
 							<%= link_to '책갈피', 
 								member_bookmark_path(:member_id=>session[:user_id],:id=>r.id), 
-								method:"patch", class:"btn btn-light" %>
+								method:"patch", class:"btn btn-light", style:"background-color:#FFFF59"%>
 						<% end %>
 					</td>
 				</tr>

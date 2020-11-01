@@ -64,6 +64,13 @@
 					</li>
 					<li class="nav-item">
 						<% if session[:user_id].nil? %>
+							<%=link_to 'Bookmarks', new_session_path, class:"nav-link" %>
+						<% else %>
+							<%=link_to 'Bookmarks', bookmarks_path, class:"nav-link" %>
+						<% end %>
+					</li>
+					<li class="nav-item">
+						<% if session[:user_id].nil? %>
 							<%=link_to 'Histories', new_session_path, class:"nav-link" %>
 						<% else %>
 							<%=link_to 'Histories', histories_path, class:"nav-link" %>
