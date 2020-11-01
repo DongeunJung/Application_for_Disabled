@@ -16,7 +16,13 @@
 					<td><%=a.seq%></td>
 					<td><%=a.name%></td>
 					<td><%=a.gu%></td>
-					<td><%=link_to '자세히보기', accomodation_path(a.id), class:"btn btn-light" %></td>
+					<td><%=link_to '자세히보기', accomodation_path(a.id), class:"btn btn-light" %>
+						<% if !session[:user_id].nil? %>
+							<%=link_to '책갈피', 
+								member_bookmark_path(:member_id=>session[:user_id], :id=>a.id), 
+								method:"patch", class:"btn btn-light" %>
+						<% end %>
+					</td>
 				</tr>
 			<% end %>
 		</tbody>

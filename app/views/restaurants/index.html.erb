@@ -18,7 +18,12 @@
 					<td><%=r.gu%></td>
 
 					<td>
-						<%=link_to '자세히보기', restaurant_path(r.id), class:"btn btn-light" %>
+						<%= link_to '자세히보기', restaurant_path(r.id), class:"btn btn-light" %>
+						<% if !session[:user_id].nil? %>
+							<%= link_to '책갈피', 
+								member_bookmark_path(:member_id=>session[:user_id],:id=>r.id), 
+								method:"patch", class:"btn btn-light" %>
+						<% end %>
 					</td>
 				</tr>
 			<% end %>

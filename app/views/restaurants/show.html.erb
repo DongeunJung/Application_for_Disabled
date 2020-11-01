@@ -3,13 +3,42 @@
 <% detail = RestrDetail.find_by(restr_id:id) %>
 
 <div class="container">
-	<h3><%= restr.name %></h3>
-
-	Full address : <%= detail.address%><br>
-	Telephone : <%= detail.telephone%><br>
-	Homepage : <%= detail.homepage %><br>
-	Accessible : <%= detail.accessible%><br>
-	Parking : <%= detail.parking %><br>
-	Isflat : <%= detail.isflat %><br>
-	Elevator : <%= detail.elevator %><br>
+	<table class="table">
+		<thead>
+			<tr>
+				<th><h4><%=restr.name%></h4></th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Address :</td>
+				<td><%=detail.address%></td>
+			</tr>
+			<tr>
+				<td>Telephone :</td>
+				<td><%=detail.telephone%></td>
+			</tr>
+			<tr>
+				<td>Homepage :</td>
+				<td><%=detail.homepage%></td>
+			</tr>
+			<tr>
+				<td>Accessible :</td>
+				<td><%=detail.accessible%></td>
+			</tr>
+			<tr>
+				<td>Parking :</td>
+				<td><%=detail.parking%></td>
+			</tr>
+			<tr>
+				<td>Isflat :</td>
+				<td><%=detail.isflat%></td>
+			</tr>
+			<tr>
+				<td>Elevator :</td>
+				<td><%=detail.elevator%></td>
+			</tr>
+		</tbody>
+	</table>
 </div>
