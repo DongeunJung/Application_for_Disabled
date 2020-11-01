@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_31_102049) do
+ActiveRecord::Schema.define(version: 2020_11_01_075307) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "accom_comments", force: :cascade do |t|
+    t.integer "accom_id"
+    t.integer "member_id"
+    t.string "member_name"
+    t.string "comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "accom_details", force: :cascade do |t|
     t.integer "accom_id"
@@ -38,7 +47,7 @@ ActiveRecord::Schema.define(version: 2020_10_31_102049) do
 
   create_table "histories", force: :cascade do |t|
     t.integer "member_id"
-    t.integer "restr_id"
+    t.integer "seq"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -48,6 +57,15 @@ ActiveRecord::Schema.define(version: 2020_10_31_102049) do
     t.string "lastname"
     t.string "email"
     t.string "password_digest"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "restr_comments", force: :cascade do |t|
+    t.integer "restr_id"
+    t.integer "member_id"
+    t.string "member_name"
+    t.string "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

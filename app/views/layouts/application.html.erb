@@ -64,9 +64,9 @@
 					</li>
 					<li class="nav-item">
 						<% if session[:user_id].nil? %>
-							<%=link_to 'Historys', new_session_path, class:"nav-link" %>
+							<%=link_to 'Histories', new_session_path, class:"nav-link" %>
 						<% else %>
-							<%=link_to 'Historys', historys_path, class:"nav-link" %>
+							<%=link_to 'Histories', histories_path, class:"nav-link" %>
 						<% end %>
 					</li>
 					<li class="nav-item">

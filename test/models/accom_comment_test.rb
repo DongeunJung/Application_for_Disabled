@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class HistorysControllerTest < ActionDispatch::IntegrationTest
+class AccomCommentTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

@@ -5,10 +5,17 @@ Rails.application.routes.draw do
 		resources :histories, only:[:update]
 		resources :bookmarks, only:[:update]
 	end
-	resources :restaurants, only:[:index, :show]
-	resources :accomodations, only:[:index, :show]
+	
+	resources :restaurants, only:[:index, :show] do
+		resources :comments, only:[:create]
+	end
+	
+	resources :accomodations, only:[:index, :show] do
+		resources :comments, only:[:create]
+	end
+	
 	resources :sessions, only:[:new, :create, :destroy]
-	resources :historys, only:[:index]
+	resources :histories, only:[:index]
 	resources :comments
 	
 	get 'about/index' => 'about#index'

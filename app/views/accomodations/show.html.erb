@@ -41,4 +41,44 @@
 			</tr>
 		</tbody>
 	</table>
+	
+	<hr>
+	
+	<div class="card card-body bg-light">
+	
+		<% accom.accom_comments.each do |c| %>
+			<label>
+				<strong><%= c.member_name %></strong>
+				<%= c.comment %>
+				<label style="float:right;color:blue"><%=c.created_at%></label>
+			</label>
+			<hr>
+		<% end %>
+		
+		<%= form_tag accomodation_comments_path(id) do %>
+			<input type="hidden" name="ctype" value="accom">
+			<div class="input-group">
+				<span class="input-group-addon">
+					<i class="fas fa-user"></i>
+				</span>
+				<% if !session[:user_id].nil? %>
+					<input type="text" name="writer" class="form-control" value="<%=Member.find(session[:user_id]).firstname%>" readonly style="background-color:white">
+				<% else %>
+					<input type="text" name="writer" class="form-control" value="Sign in to leave comment" readonly style="background-color:white">
+				<% end %>
+			</div>
+			<div class="input-group">
+				<span class="input-group-addon">
+					<i class='fas fa-comment-alt'></i>
+				</span>
+				<input type="text" class="form-control" name="comment" placeholder="Comment">
+				<span class="input-group-addon">
+					<button type="submit" style="border:none; background:none;padding:0px">
+						<i class="fas fa-share"></i>
+					</button>
+				</span>
+			</div>
+		<% end %>
+		
+	</div>
 </div>

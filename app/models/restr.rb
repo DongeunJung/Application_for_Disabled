@@ -1,6 +1,6 @@
 class Restr < ApplicationRecord
 	has_one :restr_detail
-	has_many :histories
+	has_many :restr_comments
 	
 	validates:seq, presence:true, uniqueness:true
 	validates:name, presence:true

@@ -44,8 +44,19 @@
 	
 	<hr>
 	
-	<div class="well">
-		<form>
+	<div class="card card-body bg-light">
+	
+		<% restr.restr_comments.each do |c| %>
+			<label>
+				<strong><%=c.member_name%></strong>
+				<%= c.comment %>
+				<label style="float:right;color:blue"><%= c.created_at %></label>
+			</label>
+			<hr>
+		<% end %>
+		
+		<%= form_tag restaurant_comments_path(id) do %>
+			<input type="hidden" name="ctype" value="restr">
 			<div class="input-group">
 				<span class="input-group-addon">
 					<i class="fas fa-user"></i>
@@ -67,6 +78,7 @@
 					</button>
 				</span>
 			</div>
-		</form>
+		<% end %>
+		
 	</div>
 </div>
