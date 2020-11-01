@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 	end
 	
 	resources :sessions, only:[:new, :create, :destroy]
-	resources :histories, only:[:index]
+	resources :histories, only:[:index,]
 	resources :bookmarks, only:[:index]
 	resources :comments
 	

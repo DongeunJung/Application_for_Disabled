@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 2020_11_01_075307) do
   create_table "histories", force: :cascade do |t|
     t.integer "member_id"
     t.integer "seq"
+    t.integer "realid"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
