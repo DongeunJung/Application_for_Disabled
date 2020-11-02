@@ -5,11 +5,28 @@
 	<%= link_to '식당만보기', bookmarks_show_restrs_path %>
 	<%= link_to '숙박만보기', bookmarks_show_accoms_path %>
 
-	<br>
+	<hr>
 
 	<% @bookmarks.each do |b| %>
+		<%= link_to '삭제' %>
+		
 		<%= b.seq %>
-		<%= b.realid %>
-		<br>
+		<% restr = Restr.find_by(seq:b.seq) %>
+		<% accom = Accom.find_by(seq:b.seq) %>
+		
+		<% if !restr.nil? %>
+			<%= restr.name %>
+			<%= restr.gu %>
+		<% end %>
+		
+		<% if !accom.nil? %>
+			<%= accom.name %>
+			<%= accom.gu %>
+		<% end %>
+		
+		<%= link_to '자세히보기' %>
+		
+		<hr>
+		
 	<% end %>
 </div>

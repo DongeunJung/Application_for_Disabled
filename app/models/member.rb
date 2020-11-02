@@ -3,9 +3,8 @@ class Member < ApplicationRecord
 	has_many :accom_comments
 	has_many :histories
 	has_many :bookmarks
-	#has_one :detail
-	#has_many :posts
-	#has_many :comments
+	has_many :restr_bookmarks
+	has_many :accom_bookmarks
 	
 	has_secure_password
 	before_save {self.email = email.downcase}

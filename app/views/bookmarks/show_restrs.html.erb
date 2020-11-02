@@ -2,6 +2,18 @@
 
 <div class="container-fluid">
 	<%= link_to '전체보기', bookmarks_path %>
-	<%= link_to '식당만보기', bookmarks_show_restrs_path	%>
+	<%= link_to '식당만보기', bookmarks_show_restrs_path %>
 	<%= link_to '숙박만보기', bookmarks_show_accoms_path %>
+	
+	<hr>
+	
+	<% @restr_bookmarks.each do |b| %>
+		<%= link_to '삭제' %>
+		<%= b.seq %>
+		<% restr = Restr.find_by(seq:b.seq) %>
+		<%= restr.name %>
+		<%= restr.gu %>
+		<%= link_to '자세히보기' %>
+		<hr>
+	<% end %>
 </div>

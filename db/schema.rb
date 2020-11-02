@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_02_014434) do
+ActiveRecord::Schema.define(version: 2020_11_02_072717) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "accom_bookmarks", force: :cascade do |t|
+    t.integer "member_id"
+    t.integer "seq"
+    t.integer "realid"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "accom_comments", force: :cascade do |t|
     t.integer "accom_id"
@@ -66,6 +74,14 @@ ActiveRecord::Schema.define(version: 2020_11_02_014434) do
     t.string "lastname"
     t.string "email"
     t.string "password_digest"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "restr_bookmarks", force: :cascade do |t|
+    t.integer "member_id"
+    t.integer "seq"
+    t.integer "realid"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

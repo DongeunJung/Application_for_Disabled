@@ -9,9 +9,11 @@ class BookmarksController < ApplicationController
 		if type=="restr"
 			restr = Restr.find(id)
 			Bookmark.create(member_id:params[:member_id], seq:restr.seq, realid:id)
+			RestrBookmark.create(member_id:params[:member_id], seq:restr.seq, realid:id)
 		else
 			accom = Accom.find(id)
 			Bookmark.create(member_id:params[:member_id], seq:accom.seq, realid:id)
+			AccomBookmark.create(member_id:params[:member_id], seq:accom.seq, realid:id)
 		end
 	end
 	
@@ -20,10 +22,10 @@ class BookmarksController < ApplicationController
 	end
 	
 	def show_restrs
-		@bookmarks = Bookmark.all
+		@restr_bookmarks = RestrBookmark.all
 	end
 	
 	def show_accoms
-		@bookmarks = Bookmark.all
+		@accom_bookmarks = AccomBookmark.all
 	end
 end
