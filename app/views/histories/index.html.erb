@@ -8,6 +8,8 @@
 		<% type = "accom" %>
 	<% end %>
 	
+	<%= link_to '삭제', history_path(h.id), method:"delete" %>
+	
 	<%= h.seq %>
 	<%= info.name %>
 	<%= info.gu %>

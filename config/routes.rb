@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 	
 	resources :members do 
 		resources :histories, only:[:update]
-		resources :bookmarks, only:[:update]
+		resources :bookmarks, only:[:create]
 	end
 	
 	resources :restaurants, only:[:index, :show] do
@@ -15,10 +15,12 @@ Rails.application.routes.draw do
 	end
 	
 	resources :sessions, only:[:new, :create, :destroy]
-	resources :histories, only:[:index,]
+	resources :histories, only:[:index, :destroy]
 	resources :bookmarks, only:[:index]
 	resources :comments
+	resources :about, only:[:index]
+	resources :map, only:[:index]
 	
-	get 'about/index' => 'about#index'
-	get 'map/index' => 'map#index'
+	get 'bookmarks/show_restrs' => 'bookmarks#show_restrs'
+	get 'bookmarks/show_accoms' => 'bookmarks#show_accoms'
 end

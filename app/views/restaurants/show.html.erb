@@ -41,7 +41,14 @@
 			</tr>
 		</tbody>
 	</table>
-	
+
+	<hr>
+		<%= link_to 'Back', :back, class:"btn btn-light" %>
+		<% if !session[:user_id].nil? %>
+			<%= link_to 'Bookmark', member_bookmarks_path(session[:user_id], :id=>id, :type=>"restr"), 
+				:data => {:confirm => 'Are you sure?'},
+				method:"post", class:"btn btn-light", style:"background-color:#FFFF59" %>
+		<% end %>
 	<hr>
 	
 	<div class="card card-body bg-light">

@@ -19,8 +19,9 @@
 					<td><%=link_to '자세히보기', accomodation_path(a.id), class:"btn btn-light" %>
 						<% if !session[:user_id].nil? %>
 							<%=link_to '책갈피', 
-								member_bookmark_path(:member_id=>session[:user_id], :id=>a.id), 
-								method:"patch", class:"btn btn-light", style:"background-color:#FFFF59" %>
+								member_bookmarks_path(:member_id=>session[:user_id], :id=>a.id, :type=>"accom"), 
+								:data => {:confirm => 'Are you sure?'},
+								method:"post", class:"btn btn-light", style:"background-color:#FFFF59" %>
 						<% end %>
 					</td>
 				</tr>

@@ -2,6 +2,7 @@ class Member < ApplicationRecord
 	has_many :restr_comments
 	has_many :accom_comments
 	has_many :histories
+	has_many :bookmarks
 	#has_one :detail
 	#has_many :posts
 	#has_many :comments
