@@ -8,19 +8,20 @@
 	<hr>
 
 	<% @bookmarks.each do |b| %>
-		<%= link_to '삭제' %>
-		
-		<%= b.seq %>
 		<% restr = Restr.find_by(seq:b.seq) %>
 		<% accom = Accom.find_by(seq:b.seq) %>
 		
 		<% if !restr.nil? %>
+			<%= link_to '삭제', bookmark_path(b.id, :type=>"restr"), method:"delete" %>
+			<%= b.seq %>
 			<%= restr.name %>
 			<%= restr.gu %>
 			<%= link_to '자세히보기', restaurant_path(restr.id) %>
 		<% end %>
 		
 		<% if !accom.nil? %>
+			<%= link_to '삭제', bookmark_path(b.id, :type=>"accom") %>
+			<%= b.seq %>
 			<%= accom.name %>
 			<%= accom.gu %>
 			<%= link_to '자세히보기', accomodation_path(accom.id) %>

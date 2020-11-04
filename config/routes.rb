@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 	
 	resources :sessions, only:[:new, :create, :destroy]
 	resources :histories, only:[:index, :destroy]
-	resources :bookmarks, only:[:index]
+	resources :bookmarks, only:[:index, :destroy]
 	resources :comments
 	resources :about, only:[:index]
 	resources :map, only:[:index]
