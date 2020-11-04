@@ -3,7 +3,6 @@
 		<thead>
 			<tr>
 				<th></th>
-				<th>ID</th>
 				<th>Name</th>
 				<th>Address</th>
 				<th></th>
@@ -13,12 +12,12 @@
 			<% @accoms.each_with_index do |a,index| %>
 				<tr>
 					<td><%=index+1%></td>
-					<td><%=a.seq%></td>
+					<!--<td><%=a.seq%></td>--!>
 					<td><%=a.name%></td>
 					<td><%=a.gu%></td>
-					<td><%=link_to '자세히보기', accomodation_path(a.id), class:"btn btn-light" %>
+					<td><%=link_to '상세보기', accomodation_path(a.id), class:"btn btn-light" %>
 						<% if !session[:user_id].nil? %>
-							<%=link_to '책갈피', 
+							<%=link_to '즐겨찾기', 
 								member_bookmarks_path(:member_id=>session[:user_id], :id=>a.id, :type=>"accom"), 
 								:data => {:confirm => 'Are you sure?'},
 								method:"post", class:"btn btn-light", style:"background-color:#FFFF59" %>
