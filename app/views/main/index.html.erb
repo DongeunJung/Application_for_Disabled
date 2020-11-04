@@ -1,5 +1,24 @@
 <h1>Main#index</h1>
 
-<%= link_to '식당 찾기', restaurants_path, style:"margin-top:20px", class:"btn btn-primary form-control"%>
 
-<%= link_to '숙소 찾기', accomodations_path, style:"margin-top:20px", class:"btn btn-primary form-control"%>
+<div class="row">
+    <div class="col-sm-6"> 
+		<%= link_to '식당 찾기', restaurants_path, 
+			class:"btn btn-primary form-control", style:"margin-top:20px;height: 80px"%>
+	</div>
+    <div class="col-sm-6">
+		<%= link_to '숙소 찾기', accomodations_path, 
+			class:"btn btn-primary form-control", style:"margin-top:20px;height: 80px"%>
+	</div>
+</div>
+
+<div class="row">
+    <div class="col-sm-6">
+		<%= link_to '검색 기록', histories_path, 
+			class:"btn btn-primary form-control", style:"margin-top:20px;height: 80px"%>
+	</div>
+    <div class="col-sm-6">
+		<%= link_to '북마크', bookmarks_path, 
+			class:"btn btn-primary form-control", style:"margin-top:20px;height: 80px"%>
+	</div>
+</div>
