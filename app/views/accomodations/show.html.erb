@@ -49,6 +49,8 @@
 				:data => {:confirm => 'Are you sure?'},
 				method:"post", class:"btn btn-light", style:"background-color:#FFFF59" %>
 		<% end %>
+		<%= link_to 'ViewOnMap', map_index_path(:address=>detail.address), 
+			class:"btn btn-light", style:"background-color:#dc143c" %>
 	<hr>
 	
 	<div class="card card-body bg-light">
