@@ -17,14 +17,14 @@
 		<% if !restr.nil? %>
 			<%= restr.name %>
 			<%= restr.gu %>
+			<%= link_to '자세히보기', restaurant_path(restr.id) %>
 		<% end %>
 		
 		<% if !accom.nil? %>
 			<%= accom.name %>
 			<%= accom.gu %>
+			<%= link_to '자세히보기', accomodation_path(accom.id) %>
 		<% end %>
-		
-		<%= link_to '자세히보기' %>
 		
 		<hr>
 		
