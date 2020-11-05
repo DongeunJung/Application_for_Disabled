@@ -17,13 +17,17 @@
 	
 	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<style>
+		.navbar-light .nav-item{
+			background-color:#f89b00;
+		}
+	</style>
   </head>
 
   <body>
 	
-		<nav class="navbar navbar-light bg-light">
-			
-			
+		<nav class="navbar navbar-light" style="background-color:#f89b00">
 			<button class="navbar-toggler" type="button" 
 				data-toggle="collapse" data-target="#navbarCollapse" 
 				aria-controls="navbarCollapse" aria-expanded="false" 
@@ -80,14 +84,14 @@
 						<%= link_to 'About Us', about_index_path, class:"nav-link" %>
 					</li>
 				</ul>
-				<ul class="navbar-nav navbar-expand-sm">
+				<ul class="navbar-nav">
 					<% if !session[:user_id].nil? %>
-						<%= image_tag "/person-outline.svg", style:"width:20px" %>
+						<!--<%= image_tag "/person-outline.svg", style:"width:20px" %>--!>
 						<li class="nav-item">
 							<%= link_to 'MyPage', member_path(session[:user_id]), class:"nav-link" %>
 						</li>
 					<% else %>
-						<%= image_tag "/person-add-outline.svg", style:"width:20px" %>
+						<!--<%= image_tag "/person-add-outline.svg", style:"width:20px" %>--!>
 						<li class="nav-item">
 						  <%=link_to 'SignUp', new_member_path, class:"nav-link" %>
 						</li>
