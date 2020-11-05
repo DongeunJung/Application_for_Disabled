@@ -8,9 +8,27 @@ class MembersController < ApplicationController
 		member=Member.find_by(email:params[:email].downcase)
 		if member.nil?
 			flash[:notice]='필수항목을 바르게 입력해주세요'
-			render 'new'
+			redirect_to new_member_path
 		else
+			wheelchair = params[:wheelchair]
+			vehicle = params[:vehicle]
+			if wheelchair == "on"
+				wheelchair = true
+			else
+				wheelchair = false
+			end
+			if vehicle == "on"
+				vehicle = true
+			else
+				vehicle = false
+			end
+			MemberDetail.create(member_id:member.id, 
+								wheelchair:wheelchair, 
+								vehicle:vehicle, 
+								gender:params[:gender], 
+								address:params[:address])
 			redirect_to member_path(member.id)
 		end
 	end
+	
 end

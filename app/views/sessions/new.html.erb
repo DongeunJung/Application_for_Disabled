@@ -1,17 +1,36 @@
-<%= form_tag sessions_path do %>
-	<% flash.each do |name, msg| %>
-		<div class="alert alert-warning"><%=msg%></div>
-	<% end %>
-	
-	<h3>Please sign in</h3>
+	<style>
+		input[type=email]:focus {
+			box-shadow: 0px 0px 8px 0px #f0ad4e;
+			border-color:#f0ad4e
+		}
+		input[type=password]:focus {
+			box-shadow: 0px 0px 8px 0px #f0ad4e;
+			border-color:#f0ad4e
+		}
+		input[type=submit]:focus {
+			box-shadow: 0px 0px 8px 0px #f0ad4e;
+			border-color:#f0ad4e
+		}
+		.btn-custom{
+			background-color:#f89b00
+		}
+	</style>
+<div class="container">
+	<%= form_tag sessions_path do %>
+		<% flash.each do |name, msg| %>
+			<div class="alert alert-warning"><%=msg%></div>
+		<% end %>
+		
+		<h3>Please sign in</h3>
 
-	<label>E-mail</label>
-	<input type="email" name="email" class="form-control">
-	
-	<label>Password</label>
-	<input type="password" name="password" class="form-control">
-	
-	<br>
-	
-	<input type="submit" value="Submit" class="btn btn-primary form-control">
-<% end %>
+		<label>E-mail</label>
+		<input type="email" name="email" class="form-control">
+		
+		<label>Password</label>
+		<input type="password" name="password" class="form-control">
+		
+		<br>
+		
+		<input type="submit" value="Submit" class="btn btn-custom form-control">
+	<% end %>
+</div>

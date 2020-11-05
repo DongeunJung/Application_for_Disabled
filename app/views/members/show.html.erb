@@ -1,1 +1,44 @@
 <h1>Members#show</h1>
+
+<% id = params[:id] %>
+
+<% member = Member.find(id) %>
+<% detail = member.member_detail %>
+
+<div class="container">
+	<%= member.firstname %>
+	<%= member.lastname %>
+
+	<br>
+
+	<%= member.email %>
+
+	<% if !detail.nil? %>
+
+	<br><br>
+	<label>wheelchair : </label>
+	<% if !detail.wheelchair.nil? %>
+		<%= detail.wheelchair %>
+	<% end %>
+
+	<br>
+	<label>vehicle : </label>
+	<% if !detail.vehicle.nil? %>
+		<%= detail.vehicle %>
+	<% end %>
+
+	<br>
+	<label>gender : </label>
+	<% if !detail.gender.nil? %>
+		<%= detail.gender %>
+	<% end %>
+
+	<br>
+	<label>address : </label>
+	<% if !detail.address.nil? %>
+		<%= detail.address %>
+	<% end %>
+
+	<% end %>
+
+</div>

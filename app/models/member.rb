@@ -5,6 +5,7 @@ class Member < ApplicationRecord
 	has_many :bookmarks
 	has_many :restr_bookmarks
 	has_many :accom_bookmarks
+	has_one :member_detail
 	
 	has_secure_password
 	before_save {self.email = email.downcase}

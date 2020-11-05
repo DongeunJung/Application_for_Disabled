@@ -52,27 +52,27 @@
 		<div class="input-group mb-3">
 			<div class="input-group-prepend">
 				<div class="input-group-text">
-					<input type="checkbox">
+					<input type="checkbox" name="wheelchair">
 				</div>
 			</div>
-			<input type="text" class="form-control" placeholder="횔체어를 사용하시나요?">
+			<input type="text" class="form-control" value="횔체어를 사용하시나요?" readonly>
 		</div>
 		
 		<div class="input-group mb-3">
 			<div class="input-group-prepend">
 				<div class="input-group-text">
-					<input type="checkbox">
+					<input type="checkbox" name="vehicle">
 				</div>
 			</div>
-			<input type="text" class="form-control" placeholder="자가용을 사용하시나요?">
+			<input type="text" class="form-control" value="자가용을 사용하시나요?" readonly>
 		</div>
 		
 		<div class="form-check form-check-inline">
-			<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+			<input class="form-check-input" type="radio" name="gender" value="male">
 			<label class="form-check-label" for="inlineRadio1">남성</label>
 		</div>
 		<div class="form-check form-check-inline">
-			<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+			<input class="form-check-input" type="radio" name="gender" value="female">
 			<label class="form-check-label" for="inlineRadio2">여성</label>
 		</div>
 		
@@ -80,7 +80,7 @@
 			<div class="input-group-prepend">
 				<span class="input-group-text">주소</span>
 			</div>
-			<input type="text" class="form-control" placeholder="ex)서울시 은평구 응암로 229">
+			<input type="text" name="address" class="form-control" placeholder="ex)서울시 은평구 응암로 229">
 		</div>
 		
 		<input type="submit" value="Submit" class="btn btn-custom form-control">
