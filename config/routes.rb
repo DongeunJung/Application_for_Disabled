@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 	root 'main#index'
 	
 	resources :members do 
-		resources :histories, only:[:update]
 		resources :bookmarks, only:[:create]
 	end
 	

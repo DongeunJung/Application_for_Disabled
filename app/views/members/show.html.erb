@@ -1,3 +1,13 @@
+<style>
+	.btn{	
+		border: 2px solid #E8E8E8;
+	}
+	.btn:focus{
+		border: 2px solid #f0ad4e;
+		box-shadow: 0px 0px 8px 0px #f0ad4e;
+	}
+</style>
+
 <% id = params[:id] %>
 
 <% member = Member.find(id) %>
@@ -5,17 +15,18 @@
 
 
 <div class="container">
-	<div class="btn-group">
-		<button type="button" class="btn form-control">회원정도</button>
-		<button type="button" class="btn form-control">개인정보변경</button>
-		<button type="button" class="btn form-control">기록</button>
-		<button type="button" class="btn form-control">즐겨찾기</button>
+	<div class="btn-group btn-custom">
+		<%= link_to '회원정보', member_path, class:"btn form-control" %>
+		<%= link_to '개인정보변경', edit_member_path, class:"btn form-control" %>
+		<%= link_to '기록', histories_path, class:"btn form-control" %>
+		<%= link_to '즐겨찾기', bookmarks_path, class:"btn form-control" %>
 	</div>
 
 	<table class="table">
 		<thead>
 			<tr>
 				<th><h4><%=member.firstname%>님 환영합니다.</h4></th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>

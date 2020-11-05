@@ -1,24 +1,24 @@
-<h1>History#index</h1>
-
-<% @his.each do |h| %>
-	<% info = Restr.find_by(seq:h.seq) %>
-	<% type = "restr" %>
-	<% if info.nil? %>
-		<% info = Accom.find_by(seq:h.seq) %>
-		<% type = "accom" %>
+<div class="container">
+	<% @his.each do |h| %>
+		<% info = Restr.find_by(seq:h.seq) %>
+		<% type = "restr" %>
+		<% if info.nil? %>
+			<% info = Accom.find_by(seq:h.seq) %>
+			<% type = "accom" %>
+		<% end %>
+		
+		<%= link_to '삭제', history_path(h.id), method:"delete" %>
+		
+		<%= h.seq %>
+		<%= info.name %>
+		<%= info.gu %>
+		
+		<% if type=="restr" %>
+			<%= link_to '자세히보기', restaurant_path(h.realid) %>
+		<% else %>
+			<%= link_to '자세히보기', accomodation_path(h.realid) %>
+		<% end %>
+		
+		<hr>
 	<% end %>
-	
-	<%= link_to '삭제', history_path(h.id), method:"delete" %>
-	
-	<%= h.seq %>
-	<%= info.name %>
-	<%= info.gu %>
-	
-	<% if type=="restr" %>
-		<%= link_to '자세히보기', restaurant_path(h.realid) %>
-	<% else %>
-		<%= link_to '자세히보기', accomodation_path(h.realid) %>
-	<% end %>
-	
-	<hr>
-<% end %>
+</div>
