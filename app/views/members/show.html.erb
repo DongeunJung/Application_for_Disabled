@@ -1,44 +1,50 @@
-<h1>Members#show</h1>
-
 <% id = params[:id] %>
 
 <% member = Member.find(id) %>
 <% detail = member.member_detail %>
 
+
 <div class="container">
-	<%= member.firstname %>
-	<%= member.lastname %>
+	<div class="btn-group">
+		<button type="button" class="btn form-control">회원정도</button>
+		<button type="button" class="btn form-control">개인정보변경</button>
+		<button type="button" class="btn form-control">기록</button>
+		<button type="button" class="btn form-control">즐겨찾기</button>
+	</div>
 
-	<br>
-
-	<%= member.email %>
-
-	<% if !detail.nil? %>
-
-	<br><br>
-	<label>wheelchair : </label>
-	<% if !detail.wheelchair.nil? %>
-		<%= detail.wheelchair %>
-	<% end %>
-
-	<br>
-	<label>vehicle : </label>
-	<% if !detail.vehicle.nil? %>
-		<%= detail.vehicle %>
-	<% end %>
-
-	<br>
-	<label>gender : </label>
-	<% if !detail.gender.nil? %>
-		<%= detail.gender %>
-	<% end %>
-
-	<br>
-	<label>address : </label>
-	<% if !detail.address.nil? %>
-		<%= detail.address %>
-	<% end %>
-
-	<% end %>
-
+	<table class="table">
+		<thead>
+			<tr>
+				<th><h4><%=member.firstname%>님 환영합니다.</h4></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><label>사용자이름</label></td>
+				<td><%= member.firstname %><%= member.lastname %></td>
+			</tr>
+			<tr>
+				<td><label>이메일</label></td>
+				<td><%= member.email %></td>
+			</tr>
+			<% if !detail.nil? %>
+			<tr>
+				<td><label>휠체어사용여부</label></td>
+				<td><%= detail.wheelchair %></td>
+			</tr>
+			<tr>
+				<td><label>자가용여부</label></td>
+				<td><%= detail.vehicle %></td>
+			</tr>
+			<tr>
+				<td><label>성별</label></td>
+				<td><%= detail.gender %></td>
+			</tr>
+			<tr>
+				<td><label>주소</label></td>
+				<td><%= detail.address %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
 </div>

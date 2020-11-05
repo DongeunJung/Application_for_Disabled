@@ -41,3 +41,25 @@
 		<% end %>
 	</div>
 </div>
+
+<div class="row">
+    <div class="col">
+		<% if session[:user_id].nil? %>
+			<%= link_to new_session_path, class:"btn btn-light form-control", 
+				style:"margin-top:20px;padding:40px" do %>
+				<i class="fas fa-user" style="font-size:5em;"></i><br>마이페이지
+			<% end %>
+		<% else %>
+			<%= link_to member_path(session[:user_id]), class:"btn btn-light form-control", 
+				style:"margin-top:20px;padding:40px" do %>
+				<i class="fas fa-user" style="font-size:5em;"></i><br>마이페이지
+			<% end %>		
+		<% end %>
+	</div>
+	<div class="col">
+		<%= link_to map_index_path, class:"btn btn-light form-control", 
+			style:"margin-top:20px;padding:40px" do %>
+			<i class="fas fa-compass" style="font-size:5em;"></i><br>길찾기
+		<% end %>
+	</div>
+</div>
