@@ -1,0 +1,2 @@
+class MemberDetail < ApplicationRecord
+end

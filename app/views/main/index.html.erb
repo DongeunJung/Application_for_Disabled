@@ -8,36 +8,7 @@
     <div class="col">
 		<%= link_to accomodations_path, class:"btn btn-light form-control", 
 			style:"margin-top:20px;padding:40px" do %>
-			<i class="fas fa-hotel" style="font-size:5em;"></i><br>숙소찾기
-		<% end %>
-	</div>
-</div>
-
-<div class="row">
-    <div class="col">
-		<% if session[:user_id].nil? %>
-			<%= link_to restaurants_path, class:"btn btn-light form-control", 
-				style:"margin-top:20px;padding:40px" do %>
-				<i class="fas fa-utensils" style="font-size:5em;"></i><br>식당찾기
-			<% end %>
-		<% else %>
-			<%= link_to restaurants_path, class:"btn btn-light form-control", 
-				style:"margin-top:20px;padding:40px" do %>
-				<i class="fas fa-utensils" style="font-size:5em;"></i><br>방문기록
-			<% end %>		
-		<% end %>
-	</div>
-    <div class="col">
-		<% if session[:user_id].nil? %>
-			<%= link_to accomodations_path, class:"btn btn-light form-control", 
-				style:"margin-top:20px;padding:40px" do %>
-				<i class="fas fa-hotel" style="font-size:5em;"></i><br>즐겨찾기
-			<% end %>
-		<% else %>
-			<%= link_to accomodations_path, class:"btn btn-light form-control", 
-				style:"margin-top:20px;padding:40px" do %>
-				<i class="fas fa-hotel" style="font-size:5em;"></i><br>즐겨찾기
-			<% end %>
+			<i class="fas fa-suitcase-rolling" style="font-size:5em;"></i><br>숙소찾기
 		<% end %>
 	</div>
 </div>

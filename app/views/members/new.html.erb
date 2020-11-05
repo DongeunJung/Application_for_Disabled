@@ -1,20 +1,89 @@
-<%= form_tag members_path do %>
-	<label>Firstname:</label>
-	<input type="text" name="firstname" class="form-control">
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 	
-	<label>Lastname:</label>
-	<input type="text" name="lastname" class="form-control">
+	<style>
+		input[type=text]:focus {
+			box-shadow: 0px 0px 8px 0px #f0ad4e;
+			border-color:#f0ad4e
+		}
+		input[type=email]:focus {
+			box-shadow: 0px 0px 8px 0px #f0ad4e;
+			border-color:#f0ad4e
+		}
+		input[type=password]:focus {
+			box-shadow: 0px 0px 8px 0px #f0ad4e;
+			border-color:#f0ad4e
+		}
+		input[type=submit]:focus {
+			box-shadow: 0px 0px 8px 0px #f0ad4e;
+			border-color:#f0ad4e
+		}
+		.btn-custom{
+			background-color:#f89b00
+		}
+	</style>
+</head>
 
-	<label>E-mail:</label>
-	<input type="email" name="email" class="form-control">
-	
-	<label>Password:</label>
-	<input type="password" name="password" class="form-control">
-	
-	<label>Password Confirmation:</label>
-	<input type="password" name="password_confirmation" class="form-control">
 
-	<br>
+
+<div class="container" style="margin-top:40px">
+
+	<h4>회원가입페이지입니다</h4>
 	
-	<input type="submit" value="Submit" class="btn btn-primary form-control">
-<% end %>
+	<%= form_tag members_path do %>
+		<% flash.each do |name, msg| %>
+			<div class="alert alert-warning"><%=msg%></div>
+		<% end %>
+		<input type="text" name="firstname" placeholder="*이름" class="form-control">
+		<br>
+		
+		<input type="text" name="lastname" placeholder="*성" class="form-control">
+		<br>
+		
+		<input type="email" name="email" placeholder="*이메일" class="form-control">
+		<br>
+		
+		<input type="password" name="password" placeholder="*비밀번호" class="form-control">
+		<br>
+		
+		<input type="password" name="password_confirmation" placeholder="*비밀번호확인" class="form-control">
+		<br>
+		
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+				<div class="input-group-text">
+					<input type="checkbox">
+				</div>
+			</div>
+			<input type="text" class="form-control" placeholder="횔체어를 사용하시나요?">
+		</div>
+		
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+				<div class="input-group-text">
+					<input type="checkbox">
+				</div>
+			</div>
+			<input type="text" class="form-control" placeholder="자가용을 사용하시나요?">
+		</div>
+		
+		<div class="form-check form-check-inline">
+			<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+			<label class="form-check-label" for="inlineRadio1">남성</label>
+		</div>
+		<div class="form-check form-check-inline">
+			<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+			<label class="form-check-label" for="inlineRadio2">여성</label>
+		</div>
+		
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+				<span class="input-group-text">주소</span>
+			</div>
+			<input type="text" class="form-control" placeholder="ex)서울시 은평구 응암로 229">
+		</div>
+		
+		<input type="submit" value="Submit" class="btn btn-custom form-control">
+	<% end %>
+
+</div>
