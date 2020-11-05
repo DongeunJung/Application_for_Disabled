@@ -25,8 +25,7 @@
 	</style>
   </head>
 
-  <body>
-	
+  <body>	
 		<nav class="navbar navbar-light" style="background-color:#f89b00">
 			<button class="navbar-toggler" type="button" 
 				data-toggle="collapse" data-target="#navbarCollapse" 
@@ -40,14 +39,16 @@
 			
 			<ul class="navbar-nav navbar-expand-sm">
 				<% if session[:user_id].nil? %>
-					<%= image_tag "/enter-outline.svg", style:"width:20px" %>
 					<li class="nav-item">
-					  <%=link_to 'Login', new_session_path, class:"nav-link" %>
+					  <%=link_to new_session_path, class:"nav-link" do%>
+						<%= image_tag "/enter-outline.svg", style:"width:20px" %>Login
+					  <% end %>
 					</li>
 				<% else %>
-					<%= image_tag "/exit-outline.svg", style:"width:20px" %>
 					<li class="nav-item">
-						<%= link_to 'Logout', session_path(session[:user_id]), method:"delete", class:"nav-link" %>
+						<%= link_to session_path(session[:user_id]), method:"delete", class:"nav-link" do%>
+							<%= image_tag "/exit-outline.svg", style:"width:20px" %>Logout
+						<% end %>
 					</li>
 				<% end %>
 			</ul>
