@@ -1,3 +1,17 @@
+<style>
+	.btn{	
+		border: 2px solid #E8E8E8;
+	}
+	.btn:focus{
+		border: 2px solid #f0ad4e;
+		box-shadow: 0px 0px 8px 0px #f0ad4e;
+	}
+</style>
+
+<% id = params[:id] %>
+<% member = Member.find(id) %>
+<% detail = member.member_detail %>
+
 <div class="container">
 	<div class="btn-group">
 		<%= link_to '회원정보', member_path, class:"btn form-control" %>
@@ -5,4 +19,52 @@
 		<%= link_to '기록', histories_path, class:"btn form-control" %>
 		<%= link_to '즐겨찾기', bookmarks_path, class:"btn form-control" %>
 	</div>
+	
+	<table class="table">
+		<thead>
+			<tr>
+				<th><h4><%=member.firstname%>님 환영합니다.</h4></th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><label>사용자이름</label></td>
+				<td><input type="text" name="firstname" 
+					placeholder="<%= member.firstname %>" style="border:none"></td>
+			</tr>
+			<tr>
+				<td><label>사용자성</label></td>
+				<td><input type="text" name="lastname" 
+					placeholder="<%= member.lastname %>" style="border:none"></td>
+			</tr>
+			<tr>
+				<td><label>이메일</label></td>
+				<td><input type="text" name="email" 
+					placeholder="<%= member.email %>" style="border:none"></td>
+			</tr>
+			<% if !detail.nil? %>
+			<tr>
+				<td><label>휠체어사용여부</label></td>
+				<td><input type="text" name="wheelchair" 
+					placeholder="<%= detail.wheelchair %>" style="border:none"></td>
+			</tr>
+			<tr>
+				<td><label>자가용여부</label></td>
+				<td><input type="text" name="vehicle" 
+					placeholder="<%= detail.vehicle %>" style="border:none"></td>
+			</tr>
+			<tr>
+				<td><label>성별</label></td>
+				<td><input type="text" name="gender" 
+					placeholder="<%= detail.gender %>" style="border:none"></td>
+			</tr>
+			<tr>
+				<td><label>주소</label></td>
+				<td><input type="text" name="address" 
+					placeholder="<%= detail.address %>" style="border:none"></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
 </div>
