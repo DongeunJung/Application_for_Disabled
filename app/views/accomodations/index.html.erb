@@ -1,4 +1,52 @@
+<head>	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
 <div class="container">
+	<%= form_tag restaurants_index_path do %>
+		<div class="input-group">
+			<div class="input-group-prepend">
+				<div class="input-group-text">
+					<input type="checkbox" name="accessible">
+				</div>
+			</div>
+			<input type="text" class="form-control" value="주출입구 접근로 여부" style="background-color:white" readonly>
+			
+			<div class="input-group-prepend">
+				<div class="input-group-text">
+					<input type="checkbox" name="parking">
+				</div>
+			</div>
+			<input type="text" class="form-control" value="장애인 전용 주차구역 여부" style="background-color:white" readonly>
+			
+			<div class="input-group-prepend">
+				<div class="input-group-text">
+					<input type="checkbox" name="isflat">
+				</div>
+			</div>
+			<input type="text" class="form-control" value="주출입구 높이차이 제거 여부" style="background-color:white" readonly>
+			
+			<div class="input-group-prepend">
+				<div class="input-group-text">
+					<input type="checkbox" name="elevator">
+				</div>
+			</div>
+			<input type="text" class="form-control" value="장애인용 승강기 여부" style="background-color:white" readonly>
+		</div>
+		
+		<div class="input-group mb-3">
+			<input type="text" class="form-control" name="gu" placeholder="ex)강남구">
+			<div class="input-group-append">
+				<input type="submit" class="btn btn-outline-secondary" value="적용">
+			</div>
+		</div>
+	<% end %>
+	
+	<br>
+	
 	<table class="table table-striped">
 		<thead>
 			<tr>

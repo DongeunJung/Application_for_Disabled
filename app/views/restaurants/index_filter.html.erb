@@ -1,0 +1,18 @@
+<h1>Restaurants#index_filter</h1>
+<%= link_to '뒤로가기', restaurants_path %>
+
+<h1><%= @gu %></h1>
+<h1>Accessible : <%= @accessible %></h1>
+<h1>Parking : <%= @parking %></h1>
+<h1>Isflat : <%= @isflat %></h1>
+<h1>Elevator : <%= @elevator %></h1>
+
+<% @restrs.each do |r| %>
+	<%= r.name %>. <%= r.gu %>
+	<% d = r.restr_detail %>
+	<%= d.accessible %>
+	<%= d.parking %>
+	<%= d.isflat %>
+	<%= d.elevator %>
+	<br>
+<% end %>

@@ -1,13 +1,13 @@
 <div class="row">
     <div class="col"> 
 		<%= link_to restaurants_path, class:"btn btn-light form-control", 
-			style:"margin-top:20px;padding:40px" do %>
+			style:"margin-top:20px;padding:30px" do %>
 			<i class="fas fa-utensils" style="font-size:5em;"></i><br>식당찾기
 		<% end %>
 	</div>
     <div class="col">
 		<%= link_to accomodations_path, class:"btn btn-light form-control", 
-			style:"margin-top:20px;padding:40px" do %>
+			style:"margin-top:20px;padding:30px" do %>
 			<i class="fas fa-suitcase-rolling" style="font-size:5em;"></i><br>숙소찾기
 		<% end %>
 	</div>
@@ -17,12 +17,12 @@
     <div class="col">
 		<% if session[:user_id].nil? %>
 			<%= link_to new_session_path, class:"btn btn-light form-control", 
-				style:"margin-top:20px;padding:40px" do %>
+				style:"margin-top:20px;padding:30px" do %>
 				<i class="fas fa-eye" style="font-size:5em;"></i><br>방문기록
 			<% end %>
 		<% else %>
 			<%= link_to histories_path, class:"btn btn-light form-control", 
-				style:"margin-top:20px;padding:40px" do %>
+				style:"margin-top:20px;padding:30px" do %>
 				<i class="fas fa-eye" style="font-size:5em;"></i><br>방문기록
 			<% end %>		
 		<% end %>
@@ -30,12 +30,12 @@
     <div class="col">
 		<% if session[:user_id].nil? %>
 			<%= link_to new_session_path, class:"btn btn-light form-control", 
-				style:"margin-top:20px;padding:40px" do %>
+				style:"margin-top:20px;padding:30px" do %>
 				<i class="fas fa-bookmark" style="font-size:5em;"></i><br>즐겨찾기
 			<% end %>
 		<% else %>
 			<%= link_to bookmarks_path, class:"btn btn-light form-control", 
-				style:"margin-top:20px;padding:40px" do %>
+				style:"margin-top:20px;padding:30px" do %>
 				<i class="fas fa-bookmark" style="font-size:5em;"></i><br>즐겨찾기
 			<% end %>
 		<% end %>
@@ -46,19 +46,19 @@
     <div class="col">
 		<% if session[:user_id].nil? %>
 			<%= link_to new_session_path, class:"btn btn-light form-control", 
-				style:"margin-top:20px;padding:40px" do %>
+				style:"margin-top:20px;padding:30px" do %>
 				<i class="fas fa-user" style="font-size:5em;"></i><br>마이페이지
 			<% end %>
 		<% else %>
 			<%= link_to member_path(session[:user_id]), class:"btn btn-light form-control", 
-				style:"margin-top:20px;padding:40px" do %>
+				style:"margin-top:20px;padding:30px" do %>
 				<i class="fas fa-user" style="font-size:5em;"></i><br>마이페이지
 			<% end %>		
 		<% end %>
 	</div>
 	<div class="col">
 		<%= link_to map_index_path, class:"btn btn-light form-control", 
-			style:"margin-top:20px;padding:40px" do %>
+			style:"margin-top:20px;padding:30px" do %>
 			<i class="fas fa-compass" style="font-size:5em;"></i><br>길찾기
 		<% end %>
 	</div>

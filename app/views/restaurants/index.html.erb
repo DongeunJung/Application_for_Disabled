@@ -1,34 +1,72 @@
+<head>	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
 <div class="container">
-	<form>
-		<div class="row" style="padding-bottom:20px">
-			<div class="col">
+	<%= form_tag restaurants_index_path do %>
+	<!--
+		<div class="row">
+			<div class="col bg-success">
 				<input type="checkbox" id="accessible" name="accessible" value="Bike">
 				<label for="accessible"> 주출입구 접근로 여부</label>
 			</div>
-			<div class="col">
+			<div class="col bg-warning">
 				<input type="checkbox" id="parking" name="parking" value="Car">
 				<label for="parking"> 장애인 전용 주차구역 여부</label>
 			</div>
-			<div class="col">
+			<div class="col bg-success">
 				<input type="checkbox" id="isflat" name="isflat" value="Boat">
 				<label for="isflat"> 주출입구 높이차이 제거 여부</label>
 			</div>
-			<div class="col">
+			<div class="col bg-warning">
 				<input type="checkbox" id="elevator" name="elevator" value="Boat">
 				<label for="elevator"> 장애인용 승강기 여부</label>
 			</div>
 		</div>
-		
-		<div class="row">
-			<div class="col-sm-5"> 
-				<input type="text" class="form-control" placeholder="ex)강남구">
+	-->
+		<div class="input-group">
+			<div class="input-group-prepend">
+				<div class="input-group-text">
+					<input type="checkbox" name="accessible">
+				</div>
 			</div>
-			<div class="col-sm-2"> 
-				<input type="submit" class="form-control btn btn-primary" value="적용">
+			<input type="text" class="form-control" value="주출입구 접근로 여부" style="background-color:white" readonly>
+			
+			<div class="input-group-prepend">
+				<div class="input-group-text">
+					<input type="checkbox" name="parking">
+				</div>
+			</div>
+			<input type="text" class="form-control" value="장애인 전용 주차구역 여부" style="background-color:white" readonly>
+			
+			<div class="input-group-prepend">
+				<div class="input-group-text">
+					<input type="checkbox" name="isflat">
+				</div>
+			</div>
+			<input type="text" class="form-control" value="주출입구 높이차이 제거 여부" style="background-color:white" readonly>
+			
+			<div class="input-group-prepend">
+				<div class="input-group-text">
+					<input type="checkbox" name="elevator">
+				</div>
+			</div>
+			<input type="text" class="form-control" value="장애인용 승강기 여부" style="background-color:white" readonly>
+		</div>
+		
+		<div class="input-group mb-3">
+			<input type="text" class="form-control" name="gu" placeholder="ex)강남구">
+			<div class="input-group-append">
+				<input type="submit" class="btn btn-outline-secondary" value="적용">
 			</div>
 		</div>
-	</form>
+	<% end %>
+	
 	<br>
+	
 	<table class="table table-striped">
 		<thead>
 			<tr>
@@ -62,7 +100,7 @@
 	
 	<%= will_paginate @restrs %>
 	
-	<ul class="pagination justify-content-center">
+	<!--<ul class="pagination justify-content-center">
 		<li class="page-item">
 			<%=link_to '1', restaurants_path(:page=>1), class:"page-link"%>
 		</li>
@@ -96,5 +134,5 @@
 		<li class="page-item">
 			<%=link_to '11', restaurants_path(:page=>11), class:"page-link"%>
 		</li>
-	</ul>
+	</ul>-->
 </div>
