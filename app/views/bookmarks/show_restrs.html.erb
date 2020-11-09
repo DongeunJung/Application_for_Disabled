@@ -1,19 +1,19 @@
-<h1>Bookmarks#show_restrs</h1>
-
-<div class="container-fluid">
-	<%= link_to '전체보기', bookmarks_path %>
-	<%= link_to '식당만보기', bookmarks_show_restrs_path %>
-	<%= link_to '숙박만보기', bookmarks_show_accoms_path %>
+<div class="container">
+	<div class="btn-group">
+		<%= link_to '전체보기', bookmarks_path, class:"btn form-control" %>
+		<%= link_to '식당만보기', bookmarks_show_restrs_path, class:"btn form-control" %>
+		<%= link_to '숙박만보기', bookmarks_show_accoms_path, class:"btn form-control" %>
+	</div>
 	
 	<hr>
 	
 	<% @restr_bookmarks.each do |b| %>
-		<%= link_to '삭제' %>
+		<%= link_to '삭제', bookmark_path(b.id, :type=>"restr"), method:"delete", class:"btn btn-warning", style:"padding:2px" %>
 		<%= b.seq %>
 		<% restr = Restr.find_by(seq:b.seq) %>
 		<%= restr.name %>
 		<%= restr.gu %>
-		<%= link_to '자세히보기' %>
+		<%= link_to '자세히보기', restaurant_path(b.id), class:"btn btn-light", style:"padding:2px" %>
 		<hr>
 	<% end %>
 </div>
