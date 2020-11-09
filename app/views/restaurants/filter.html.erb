@@ -1,0 +1,132 @@
+<div class="container">
+	<%= link_to '뒤로가기', restaurants_path %>
+
+	<h1><%= @gu %></h1>
+
+	<% if @accessible=="Y" && @parking=="Y" && @isflat=="Y" && @elevator=="Y" %><!--1YYYY--!>
+		<% @restrs.each do |r| %>
+			<% d = r.restr_detail %>
+			<% if d.accessible=="Y" && d.parking=="Y" && d.isflat=="Y" && d.elevator=="Y" %>
+				<%= r.name %>. <%= r.gu %>
+				<br>
+			<% end %>
+		<% end %>
+	<% elsif @accessible=="Y" && @parking=="Y" && @isflat=="Y" && @elevator=="N" %><!--2YYYN--!>
+		<% @restrs.each do |r| %>
+			<% d = r.restr_detail %>
+			<% if d.accessible=="Y" && d.parking=="Y" && d.isflat=="Y" %>
+				<%= r.name %>. <%= r.gu %>
+				<br>
+			<% end %>
+		<% end %>
+	<% elsif @accessible=="Y" && @parking=="Y" && @isflat=="N" && @elevator=="Y" %><!--3YYNY--!>
+		<% @restrs.each do |r| %>
+			<% d = r.restr_detail %>
+			<% if d.accessible=="Y" && d.parking=="Y" && d.elevator=="Y" %>
+				<%= r.name %>. <%= r.gu %>
+				<br>
+			<% end %>
+		<% end %>
+	<% elsif @accessible=="Y" && @parking=="N" && @isflat=="Y" && @elevator=="Y" %><!--4YNYY--!>
+		<% @restrs.each do |r| %>
+			<% d = r.restr_detail %>
+			<% if d.accessible=="Y" && d.isflat=="Y" && d.elevator=="Y" %>
+				<%= r.name %>. <%= r.gu %>
+				<br>
+			<% end %>
+		<% end %>
+	<% elsif @accessible=="N" && @parking=="Y" && @isflat=="Y" && @elevator=="Y" %><!--5NYYY--!>
+		<% @restrs.each do |r| %>
+			<% d = r.restr_detail %>
+			<% if d.parking=="Y" && d.isflat=="Y" && d.elevator=="Y" %>
+				<%= r.name %>. <%= r.gu %>
+				<br>
+			<% end %>
+		<% end %>
+	<% elsif @accessible=="Y" && @parking=="Y" && @isflat=="N" && @elevator=="N" %><!--6YYNN--!>
+		<% @restrs.each do |r| %>
+			<% d = r.restr_detail %>
+			<% if d.accessible=="Y" && d.parking=="Y" %>
+				<%= r.name %>. <%= r.gu %>
+				<br>
+			<% end %>
+		<% end %>
+	<% elsif @accessible=="Y" && @parking=="N" && @isflat=="Y" && @elevator=="N" %><!--7YNYN--!>
+		<% @restrs.each do |r| %>
+			<% d = r.restr_detail %>
+			<% if d.accessible=="Y" && d.isflat=="Y" %>
+				<%= r.name %>. <%= r.gu %>
+				<br>
+			<% end %>
+		<% end %>
+	<% elsif @accessible=="Y" && @parking=="N" && @isflat=="N" && @elevator=="Y" %><!--8YNNY--!>
+		<% @restrs.each do |r| %>
+			<% d = r.restr_detail %>
+			<% if d.accessible=="Y" && d.elevator=="Y" %>
+				<%= r.name %>. <%= r.gu %>
+				<br>
+			<% end %>
+		<% end %>
+	<% elsif @parking=="Y" && @elevator=="Y" %><!--9NYNY--!>
+		<% @restrs.each do |r| %>
+			<% d = r.restr_detail %>
+			<% if d.accessible=="Y" && d.parking=="Y" && d.isflat=="Y" && d.elevator=="Y" %>
+				<%= r.name %>. <%= r.gu %>
+				<br>
+			<% end %>
+		<% end %>
+	<% elsif @accessible=="N" && @parking=="Y" && @isflat=="Y" && @elevator=="N" %><!--10NYYN--!>
+		<% @restrs.each do |r| %>
+			<% d = r.restr_detail %>
+			<% if d.parking=="Y" && d.isflat=="Y" %>
+				<%= r.name %>. <%= r.gu %>
+				<br>
+			<% end %>
+		<% end %>
+	<% elsif @accessible=="N" && @parking=="N" && @isflat=="Y" && @elevator=="Y" %><!--11NNYY--!>
+		<% @restrs.each do |r| %>
+			<% d = r.restr_detail %>
+			<% if d.isflat=="Y" && d.elevator=="Y" %>
+				<%= r.name %>. <%= r.gu %>
+				<br>
+			<% end %>
+		<% end %>
+	<% elsif @accessible=="Y" && @parking=="N" && @isflat=="N" && @elevator=="N" %><!--12YNNN--!>
+		<% @restrs.each do |r| %>
+			<% d = r.restr_detail %>
+			<% if d.accessible=="Y" %>
+				<%= r.name %>. <%= r.gu %>
+				<br>
+			<% end %>
+		<% end %>
+	<% elsif @accessible=="N" && @parking=="Y" && @isflat=="N" && @elevator=="N" %><!--13NYNN--!>
+		<% @restrs.each do |r| %>
+			<% d = r.restr_detail %>
+			<% if d.parking=="Y" %>
+				<%= r.name %>. <%= r.gu %>
+				<br>
+			<% end %>
+		<% end %>
+	<% elsif @accessible=="N" && @parking=="N" && @isflat=="Y" && @elevator=="N" %><!--14NNYN--!>
+		<% @restrs.each do |r| %>
+			<% d = r.restr_detail %>
+			<% if d.isflat=="Y" %>
+				<%= r.name %>. <%= r.gu %>
+			<% end %>
+		<% end %>
+	<% elsif @accessible=="N" && @parking=="N" && @isflat=="N" && @elevator=="Y" %><!--15NNNY--!>
+		<% @restrs.each do |r| %>
+			<% d = r.restr_detail %>
+			<% if d.elevator=="Y" %>
+				<%= r.name %>. <%= r.gu %>
+				<br>
+			<% end %>
+		<% end %>
+	<% else @accessible=="N" && @parking=="N" && @isflat=="N" && @elevator=="N" %><!--16NNNN--!>
+		<% @restrs.each do |r| %>
+			<% d = r.restr_detail %>
+			<%= r.name %>. <%= r.gu %>
+			<br>
+		<% end %>
+	<% end %>
+</div>

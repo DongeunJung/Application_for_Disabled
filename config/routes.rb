@@ -23,5 +23,6 @@ Rails.application.routes.draw do
 	get 'bookmarks/show_restrs' => 'bookmarks#show_restrs'
 	get 'bookmarks/show_accoms' => 'bookmarks#show_accoms'
 	
-	post 'restaurants/index' => 'restaurants#index_filter'
+	post 'restaurants/filter' => 'restaurants#filter'
+	post 'accomodations/filter' => 'accomodations#filter'
 end

@@ -3,14 +3,19 @@ class RestaurantsController < ApplicationController
 		@restrs = (Restr.order(:gu).order(:name)).paginate(page: params[:page], per_page: 40)
 	end	
 	
-	def index_filter
+	def filter
 		@gu = params[:gu]
 		@accessible = params[:accessible]
 		@parking = params[:parking]
 		@isflat = params[:isflat]
 		@elevator = params[:elevator]
-		@restrs = Restr.where(gu:@gu)
-	
+		@restrs;
+		if !@gu.nil? && !@gu.empty?
+			@restrs = Restr.where(gu:@gu)
+		else
+			@restrs = Restr.all
+		end
+		
 		if @accessible == "on"
 			@accessible = "Y"
 		else
@@ -33,15 +38,11 @@ class RestaurantsController < ApplicationController
 			@elevator = "Y"
 		else
 			@elevator = "N"
-		end
-		
-		
+		end	
 	end
 	
 	def show
-		restr = Restr.find_by(id:params[:id])
-		if !restr.nil?
-			History.create(member_id:session[:user_id], seq:restr.seq, realid:restr.id)
-		end
+		restr = Restr.find(params[:id])
+		History.create(member_id:session[:user_id], seq:restr.seq, realid:restr.id)
 	end
 end
