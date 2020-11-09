@@ -58,29 +58,29 @@
 			<div class="collapse navbar-collapse bg-light" id="navbarCollapse">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item active">
-						<%= link_to 'Home', root_path, class:"nav-link" %>
+						<%= link_to 'HOME', root_path, class:"nav-link" %>
 					</li>
 					<li class="nav-item">
-						<%= link_to 'Map', map_index_path, class:"nav-link" %>
+						<%= link_to '지도', map_index_path, class:"nav-link" %>
 					</li>
 					<li class="nav-item">
-						<%= link_to 'Restaurants', restaurants_path, class:"nav-link" %>
+						<%= link_to '식당', restaurants_path, class:"nav-link" %>
 					</li>
 					<li class="nav-item">
-						<%= link_to 'Accomodations', accomodations_path, class:"nav-link" %>
+						<%= link_to '숙박', accomodations_path, class:"nav-link" %>
 					</li>
 					<li class="nav-item">
 						<% if session[:user_id].nil? %>
-							<%=link_to 'Bookmarks', new_session_path, class:"nav-link" %>
+							<%=link_to '즐겨찾기', new_session_path, class:"nav-link" %>
 						<% else %>
-							<%=link_to 'Bookmarks', bookmarks_path, class:"nav-link" %>
+							<%=link_to '즐겨찾기', bookmarks_path, class:"nav-link" %>
 						<% end %>
 					</li>
 					<li class="nav-item">
 						<% if session[:user_id].nil? %>
-							<%=link_to 'Histories', new_session_path, class:"nav-link" %>
+							<%=link_to '방문기록', new_session_path, class:"nav-link" %>
 						<% else %>
-							<%=link_to 'Histories', histories_path, class:"nav-link" %>
+							<%=link_to '방문기록', histories_path, class:"nav-link" %>
 						<% end %>
 					</li>
 					<li class="nav-item">
@@ -91,12 +91,12 @@
 					<% if !session[:user_id].nil? %>
 						<!--<%= image_tag "/person-outline.svg", style:"width:20px" %>--!>
 						<li class="nav-item">
-							<%= link_to 'MyPage', member_path(session[:user_id]), class:"nav-link" %>
+							<%= link_to '마이페이지', member_path(session[:user_id]), class:"nav-link" %>
 						</li>
 					<% else %>
 						<!--<%= image_tag "/person-add-outline.svg", style:"width:20px" %>--!>
 						<li class="nav-item">
-						  <%=link_to 'SignUp', new_member_path, class:"nav-link" %>
+						  <%=link_to '회원가입', new_member_path, class:"nav-link" %>
 						</li>
 					<% end %>
 				</ul>

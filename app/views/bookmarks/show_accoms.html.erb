@@ -8,9 +8,9 @@
 	<hr>
 	
 	<% @accom_bookmarks.each do |a| %>
-		<%= link_to '삭제', bookmark_path(a.id, :type=>"accom"), class:"btn btn-warning", style:"padding:2px" %>
-		<%= a.seq %>
 		<% accom = Accom.find_by(seq:a.seq) %>
+		<%= link_to '삭제', bookmark_path(accom.id, :type=>"accom"), class:"btn btn-warning", style:"padding:2px" %>
+		<%= a.seq %>
 		<%= accom.name %>
 		<%= accom.gu %>
 		<%= link_to '자세히보기', accomodation_path(a.id), class:"btn btn-light", style:"padding:2px" %>

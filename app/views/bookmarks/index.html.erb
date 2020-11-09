@@ -20,7 +20,7 @@
 		<% end %>
 		
 		<% if !accom.nil? %>
-			<%= link_to '삭제', bookmark_path(b.id, :type=>"accom"), class:"btn btn-warning", style:"padding:2px" %>
+			<%= link_to '삭제', bookmark_path(b.id, :type=>"accom"), method:"delete", class:"btn btn-warning", style:"padding:2px" %>
 			<%= b.seq %>
 			<%= accom.name %>
 			<%= accom.gu %>

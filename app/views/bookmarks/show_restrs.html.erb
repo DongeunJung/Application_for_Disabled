@@ -8,9 +8,10 @@
 	<hr>
 	
 	<% @restr_bookmarks.each do |b| %>
-		<%= link_to '삭제', bookmark_path(b.id, :type=>"restr"), method:"delete", class:"btn btn-warning", style:"padding:2px" %>
-		<%= b.seq %>
 		<% restr = Restr.find_by(seq:b.seq) %>
+		<%= link_to '삭제', bookmark_path(restr.id, :type=>"restr"), method:"delete", class:"btn btn-warning", style:"padding:2px" %>
+		<%= b.seq %>
+		
 		<%= restr.name %>
 		<%= restr.gu %>
 		<%= link_to '자세히보기', restaurant_path(b.id), class:"btn btn-light", style:"padding:2px" %>

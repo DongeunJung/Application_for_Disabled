@@ -10,7 +10,7 @@ class RestaurantsController < ApplicationController
 		@isflat = params[:isflat]
 		@elevator = params[:elevator]
 		@restrs = Restr.where(gu:@gu)
-		
+	
 		if @accessible == "on"
 			@accessible = "Y"
 		else

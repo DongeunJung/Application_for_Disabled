@@ -9,7 +9,6 @@
 
 <% @restrs.each do |r| %>
 	<% d = r.restr_detail %>
-	
 	<%= r.name %>. <%= r.gu %>
 	<%= d.accessible %>
 	<%= d.parking %>
@@ -17,3 +16,6 @@
 	<%= d.elevator %>
 	<br>
 <% end %>
+
+<% if @accessible=="Y" %>
+<%%>
