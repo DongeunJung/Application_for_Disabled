@@ -8,8 +8,9 @@
 <h1>Elevator : <%= @elevator %></h1>
 
 <% @restrs.each do |r| %>
-	<%= r.name %>. <%= r.gu %>
 	<% d = r.restr_detail %>
+	
+	<%= r.name %>. <%= r.gu %>
 	<%= d.accessible %>
 	<%= d.parking %>
 	<%= d.isflat %>

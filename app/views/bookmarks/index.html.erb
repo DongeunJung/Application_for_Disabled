@@ -1,6 +1,6 @@
 <h1>Bookmarks#index</h1>
 
-<div class="container-fluid">
+<div class="container">
 	<%= link_to '전체보기', bookmarks_path %>
 	<%= link_to '식당만보기', bookmarks_show_restrs_path %>
 	<%= link_to '숙박만보기', bookmarks_show_accoms_path %>
@@ -12,19 +12,19 @@
 		<% accom = Accom.find_by(seq:b.seq) %>
 		
 		<% if !restr.nil? %>
-			<%= link_to '삭제', bookmark_path(b.id, :type=>"restr"), method:"delete" %>
+			<%= link_to '삭제', bookmark_path(b.id, :type=>"restr"), method:"delete", class:"btn btn-warning", style:"padding:2px" %>
 			<%= b.seq %>
 			<%= restr.name %>
 			<%= restr.gu %>
-			<%= link_to '자세히보기', restaurant_path(restr.id) %>
+			<%= link_to '자세히보기', restaurant_path(restr.id), class:"btn btn-light", style:"padding:2px" %>
 		<% end %>
 		
 		<% if !accom.nil? %>
-			<%= link_to '삭제', bookmark_path(b.id, :type=>"accom") %>
+			<%= link_to '삭제', bookmark_path(b.id, :type=>"accom"), class:"btn btn-warning", style:"padding:2px" %>
 			<%= b.seq %>
 			<%= accom.name %>
 			<%= accom.gu %>
-			<%= link_to '자세히보기', accomodation_path(accom.id) %>
+			<%= link_to '자세히보기', accomodation_path(accom.id), class:"btn btn-light", style:"padding:2px" %>
 		<% end %>
 		
 		<hr>
