@@ -37,7 +37,7 @@
 			</button>
 			
 			
-			<%= link_to 'testApp', root_path, class:"navbar-brand"%>
+			<%= link_to '배프야 놀자', root_path, class:"navbar-brand"%>
 			
 			<ul class="navbar-nav navbar-expand-sm">
 				<% if session[:user_id].nil? %>
@@ -61,20 +61,13 @@
 						<%= link_to 'HOME', root_path, class:"nav-link" %>
 					</li>
 					<li class="nav-item">
-						<%= link_to '지도', map_index_path, class:"nav-link" %>
+						<%= link_to '지도보기', map_index_path, class:"nav-link" %>
 					</li>
 					<li class="nav-item">
-						<%= link_to '식당', restaurants_path, class:"nav-link" %>
+						<%= link_to '식당찾기', restaurants_path, class:"nav-link" %>
 					</li>
 					<li class="nav-item">
-						<%= link_to '숙박', accomodations_path, class:"nav-link" %>
-					</li>
-					<li class="nav-item">
-						<% if session[:user_id].nil? %>
-							<%=link_to '즐겨찾기', new_session_path, class:"nav-link" %>
-						<% else %>
-							<%=link_to '즐겨찾기', bookmarks_path, class:"nav-link" %>
-						<% end %>
+						<%= link_to '숙박찾기', accomodations_path, class:"nav-link" %>
 					</li>
 					<li class="nav-item">
 						<% if session[:user_id].nil? %>
@@ -84,7 +77,11 @@
 						<% end %>
 					</li>
 					<li class="nav-item">
-						<%= link_to 'About Us', about_index_path, class:"nav-link" %>
+						<% if session[:user_id].nil? %>
+							<%=link_to '즐겨찾기', new_session_path, class:"nav-link" %>
+						<% else %>
+							<%=link_to '즐겨찾기', bookmarks_path, class:"nav-link" %>
+						<% end %>
 					</li>
 				</ul>
 				<ul class="navbar-nav">
@@ -99,6 +96,9 @@
 						  <%=link_to '회원가입', new_member_path, class:"nav-link" %>
 						</li>
 					<% end %>
+					<li class="nav-item">
+						<%= link_to 'About Us', about_index_path, class:"nav-link" %>
+					</li>
 				</ul>
 			</div>
 		</nav>	

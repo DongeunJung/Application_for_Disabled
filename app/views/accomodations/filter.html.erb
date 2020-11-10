@@ -2,148 +2,191 @@
 	<%= link_to '뒤로가기', accomodations_path %>
 
 	<h1><%= @gu %></h1>
-
-	<% if @accessible=="Y" && @parking=="Y" && @isflat=="Y" && @elevator=="Y" %><!--1YYYY--!>
-		<% @accoms.each do |a| %>
-			<% d = a.accom_detail %>
-			<% if d.accessible=="Y" && d.parking=="Y" && d.isflat=="Y" && d.elevator=="Y" %>
-				<%= a.name %>. <%= a.gu %>
-				<%=link_to '상세보기', accomodation_path(a.id), class:"btn btn-light" %>
-				<br>
+	
+	<table class="table">
+		<thead>
+			<tr>
+				<th>이름</th>
+				<th>주소</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+		<% if @accessible=="Y" && @parking=="Y" && @isflat=="Y" && @elevator=="Y" %><!--1YYYY--!>
+			<% @accoms.each do |a| %>
+				<% d = a.accom_detail %>
+				<% if d.accessible=="Y" && d.parking=="Y" && d.isflat=="Y" && d.elevator=="Y" %>
+					<tr>
+						<td><%= a.name %></td>
+						<td><%= a.gu %></td>
+						<td><%=link_to '상세보기', accomodation_path(a.id), class:"btn btn-light" %></td>
+					</tr>
+				<% end %>
+			<% end %>
+		<% elsif @accessible=="Y" && @parking=="Y" && @isflat=="Y" && @elevator=="N" %><!--2YYYN--!>
+			<% @accoms.each do |a| %>
+				<% d = a.accom_detail %>
+				<% if d.accessible=="Y" && d.parking=="Y" && d.isflat=="Y" %>
+					<tr>
+						<td><%= a.name %></td>
+						<td><%= a.gu %></td>
+						<td><%=link_to '상세보기', accomodation_path(a.id), class:"btn btn-light" %></td>
+					</tr>
+				<% end %>
+			<% end %>
+		<% elsif @accessible=="Y" && @parking=="Y" && @isflat=="N" && @elevator=="Y" %><!--3YYNY--!>
+			<% @accoms.each do |a| %>
+				<% d = a.accom_detail %>
+				<% if d.accessible=="Y" && d.parking=="Y" && d.elevator=="Y" %>
+					<tr>
+						<td><%= a.name %></td>
+						<td><%= a.gu %></td>
+						<td><%=link_to '상세보기', accomodation_path(a.id), class:"btn btn-light" %></td>
+					</tr>
+				<% end %>
+			<% end %>
+		<% elsif @accessible=="Y" && @parking=="N" && @isflat=="Y" && @elevator=="Y" %><!--4YNYY--!>
+			<% @accoms.each do |a| %>
+				<% d = a.accom_detail %>
+				<% if d.accessible=="Y" && d.isflat=="Y" && d.elevator=="Y" %>
+					<tr>
+						<td><%= a.name %></td>
+						<td><%= a.gu %></td>
+						<td><%=link_to '상세보기', accomodation_path(a.id), class:"btn btn-light" %></td>
+					</tr>
+				<% end %>
+			<% end %>
+		<% elsif @accessible=="N" && @parking=="Y" && @isflat=="Y" && @elevator=="Y" %><!--5NYYY--!>
+			<% @accoms.each do |a| %>
+				<% d = a.accom_detail %>
+				<% if d.parking=="Y" && d.isflat=="Y" && d.elevator=="Y" %>
+					<tr>
+						<td><%= a.name %></td>
+						<td><%= a.gu %></td>
+						<td><%=link_to '상세보기', accomodation_path(a.id), class:"btn btn-light" %></td>
+					</tr>
+				<% end %>
+			<% end %>
+		<% elsif @accessible=="Y" && @parking=="Y" && @isflat=="N" && @elevator=="N" %><!--6YYNN--!>
+			<% @accoms.each do |a| %>
+				<% d = a.accom_detail %>
+				<% if d.accessible=="Y" && d.parking=="Y" %>
+					<tr>
+						<td><%= a.name %></td>
+						<td><%= a.gu %></td>
+						<td><%=link_to '상세보기', accomodation_path(a.id), class:"btn btn-light" %></td>
+					</tr>
+				<% end %>
+			<% end %>
+		<% elsif @accessible=="Y" && @parking=="N" && @isflat=="Y" && @elevator=="N" %><!--7YNYN--!>
+			<% @accoms.each do |a| %>
+				<% d = a.accom_detail %>
+				<% if d.accessible=="Y" && d.isflat=="Y" %>
+					<tr>
+						<td><%= a.name %></td>
+						<td><%= a.gu %></td>
+						<td><%=link_to '상세보기', accomodation_path(a.id), class:"btn btn-light" %></td>
+					</tr>
+				<% end %>
+			<% end %>
+		<% elsif @accessible=="Y" && @parking=="N" && @isflat=="N" && @elevator=="Y" %><!--8YNNY--!>
+			<% @accoms.each do |a| %>
+				<% d = a.accom_detail %>
+				<% if d.accessible=="Y" && d.elevator=="Y" %>
+					<tr>
+						<td><%= a.name %></td>
+						<td><%= a.gu %></td>
+						<td><%=link_to '상세보기', accomodation_path(a.id), class:"btn btn-light" %></td>
+					</tr>
+				<% end %>
+			<% end %>
+		<% elsif @parking=="Y" && @elevator=="Y" %><!--9NYNY--!>
+			<% @accoms.each do |a| %>
+				<% d = a.accom_detail %>
+				<% if d.accessible=="Y" && d.parking=="Y" && d.isflat=="Y" && d.elevator=="Y" %>
+					<tr>
+						<td><%= a.name %></td>
+						<td><%= a.gu %></td>
+						<td><%=link_to '상세보기', accomodation_path(a.id), class:"btn btn-light" %></td>
+					</tr>
+				<% end %>
+			<% end %>
+		<% elsif @accessible=="N" && @parking=="Y" && @isflat=="Y" && @elevator=="N" %><!--10NYYN--!>
+			<% @accoms.each do |a| %>
+				<% d = a.accom_detail %>
+				<% if d.parking=="Y" && d.isflat=="Y" %>
+					<tr>
+						<td><%= a.name %></td>
+						<td><%= a.gu %></td>
+						<td><%=link_to '상세보기', accomodation_path(a.id), class:"btn btn-light" %></td>
+					</tr>
+				<% end %>
+			<% end %>
+		<% elsif @accessible=="N" && @parking=="N" && @isflat=="Y" && @elevator=="Y" %><!--11NNYY--!>
+			<% @accoms.each do |a| %>
+				<% d = a.accom_detail %>
+				<% if d.isflat=="Y" && d.elevator=="Y" %>
+					<tr>
+						<td><%= a.name %></td>
+						<td><%= a.gu %></td>
+						<td><%=link_to '상세보기', accomodation_path(a.id), class:"btn btn-light" %></td>
+					</tr>
+				<% end %>
+			<% end %>
+		<% elsif @accessible=="Y" && @parking=="N" && @isflat=="N" && @elevator=="N" %><!--12YNNN--!>
+			<% @accoms.each do |a| %>
+				<% d = a.accom_detail %>
+				<% if d.accessible=="Y" %>
+					<tr>
+						<td><%= a.name %></td>
+						<td><%= a.gu %></td>
+						<td><%=link_to '상세보기', accomodation_path(a.id), class:"btn btn-light" %></td>
+					</tr>
+				<% end %>
+			<% end %>
+		<% elsif @accessible=="N" && @parking=="Y" && @isflat=="N" && @elevator=="N" %><!--13NYNN--!>
+			<% @accoms.each do |a| %>
+				<% d = a.accom_detail %>
+				<% if d.parking=="Y" %>
+					<tr>
+						<td><%= a.name %></td>
+						<td><%= a.gu %></td>
+						<td><%=link_to '상세보기', accomodation_path(a.id), class:"btn btn-light" %></td>
+					</tr>
+				<% end %>
+			<% end %>
+		<% elsif @accessible=="N" && @parking=="N" && @isflat=="Y" && @elevator=="N" %><!--14NNYN--!>
+			<% @accoms.each do |a| %>
+				<% d = a.accom_detail %>
+				<% if d.isflat=="Y" %>
+					<tr>
+						<td><%= a.name %></td>
+						<td><%= a.gu %></td>
+						<td><%=link_to '상세보기', accomodation_path(a.id), class:"btn btn-light" %></td>
+					</tr>
+				<% end %>
+			<% end %>
+		<% elsif @accessible=="N" && @parking=="N" && @isflat=="N" && @elevator=="Y" %><!--15NNNY--!>
+			<% @accoms.each do |a| %>
+				<% d = a.accom_detail %>
+				<% if d.elevator=="Y" %>
+					<tr>
+						<td><%= a.name %></td>
+						<td><%= a.gu %></td>
+						<td><%=link_to '상세보기', accomodation_path(a.id), class:"btn btn-light" %></td>
+					</tr>
+				<% end %>
+			<% end %>
+		<% else @accessible=="N" && @parking=="N" && @isflat=="N" && @elevator=="N" %><!--16NNNN--!>
+			<% @accoms.each do |a| %>
+				<% d = a.accom_detail %>
+				<tr>
+					<td><%= a.name %></td>
+					<td><%= a.gu %></td>
+					<td><%=link_to '상세보기', accomodation_path(a.id), class:"btn btn-light" %></td>
+				</tr>
 			<% end %>
 		<% end %>
-	<% elsif @accessible=="Y" && @parking=="Y" && @isflat=="Y" && @elevator=="N" %><!--2YYYN--!>
-		<% @accoms.each do |a| %>
-			<% d = a.accom_detail %>
-			<% if d.accessible=="Y" && d.parking=="Y" && d.isflat=="Y" %>
-				<%= a.name %>. <%= a.gu %>
-				<%=link_to '상세보기', accomodation_path(a.id), class:"btn btn-light" %>
-				<br>
-			<% end %>
-		<% end %>
-	<% elsif @accessible=="Y" && @parking=="Y" && @isflat=="N" && @elevator=="Y" %><!--3YYNY--!>
-		<% @accoms.each do |a| %>
-			<% d = a.accom_detail %>
-			<% if d.accessible=="Y" && d.parking=="Y" && d.elevator=="Y" %>
-				<%= a.name %>. <%= a.gu %>
-				<%=link_to '상세보기', accomodation_path(a.id), class:"btn btn-light" %>
-				<br>
-			<% end %>
-		<% end %>
-	<% elsif @accessible=="Y" && @parking=="N" && @isflat=="Y" && @elevator=="Y" %><!--4YNYY--!>
-		<% @accoms.each do |a| %>
-			<% d = a.accom_detail %>
-			<% if d.accessible=="Y" && d.isflat=="Y" && d.elevator=="Y" %>
-				<%= a.name %>. <%= a.gu %>
-				<%=link_to '상세보기', accomodation_path(a.id), class:"btn btn-light" %>
-				<br>
-			<% end %>
-		<% end %>
-	<% elsif @accessible=="N" && @parking=="Y" && @isflat=="Y" && @elevator=="Y" %><!--5NYYY--!>
-		<% @accoms.each do |a| %>
-			<% d = a.accom_detail %>
-			<% if d.parking=="Y" && d.isflat=="Y" && d.elevator=="Y" %>
-				<%= a.name %>. <%= a.gu %>
-				<%=link_to '상세보기', accomodation_path(a.id), class:"btn btn-light" %>
-				<br>
-			<% end %>
-		<% end %>
-	<% elsif @accessible=="Y" && @parking=="Y" && @isflat=="N" && @elevator=="N" %><!--6YYNN--!>
-		<% @accoms.each do |a| %>
-			<% d = a.accom_detail %>
-			<% if d.accessible=="Y" && d.parking=="Y" %>
-				<%= a.name %>. <%= a.gu %>
-				<%=link_to '상세보기', accomodation_path(a.id), class:"btn btn-light" %>
-				<br>
-			<% end %>
-		<% end %>
-	<% elsif @accessible=="Y" && @parking=="N" && @isflat=="Y" && @elevator=="N" %><!--7YNYN--!>
-		<% @accoms.each do |a| %>
-			<% d = a.accom_detail %>
-			<% if d.accessible=="Y" && d.isflat=="Y" %>
-				<%= a.name %>. <%= a.gu %>
-				<%=link_to '상세보기', accomodation_path(a.id), class:"btn btn-light" %>
-				<br>
-			<% end %>
-		<% end %>
-	<% elsif @accessible=="Y" && @parking=="N" && @isflat=="N" && @elevator=="Y" %><!--8YNNY--!>
-		<% @accoms.each do |a| %>
-			<% d = a.accom_detail %>
-			<% if d.accessible=="Y" && d.elevator=="Y" %>
-				<%= a.name %>. <%= a.gu %>
-				<%=link_to '상세보기', accomodation_path(a.id), class:"btn btn-light" %>
-				<br>
-			<% end %>
-		<% end %>
-	<% elsif @parking=="Y" && @elevator=="Y" %><!--9NYNY--!>
-		<% @accoms.each do |a| %>
-			<% d = a.accom_detail %>
-			<% if d.accessible=="Y" && d.parking=="Y" && d.isflat=="Y" && d.elevator=="Y" %>
-				<%= a.name %>. <%= a.gu %>
-				<%=link_to '상세보기', accomodation_path(a.id), class:"btn btn-light" %>
-				<br>
-			<% end %>
-		<% end %>
-	<% elsif @accessible=="N" && @parking=="Y" && @isflat=="Y" && @elevator=="N" %><!--10NYYN--!>
-		<% @accoms.each do |a| %>
-			<% d = a.accom_detail %>
-			<% if d.parking=="Y" && d.isflat=="Y" %>
-				<%= a.name %>. <%= a.gu %>
-				<%=link_to '상세보기', accomodation_path(a.id), class:"btn btn-light" %>
-				<br>
-			<% end %>
-		<% end %>
-	<% elsif @accessible=="N" && @parking=="N" && @isflat=="Y" && @elevator=="Y" %><!--11NNYY--!>
-		<% @accoms.each do |a| %>
-			<% d = a.accom_detail %>
-			<% if d.isflat=="Y" && d.elevator=="Y" %>
-				<%= a.name %>. <%= a.gu %>
-				<%=link_to '상세보기', accomodation_path(a.id), class:"btn btn-light" %>
-				<br>
-			<% end %>
-		<% end %>
-	<% elsif @accessible=="Y" && @parking=="N" && @isflat=="N" && @elevator=="N" %><!--12YNNN--!>
-		<% @accoms.each do |a| %>
-			<% d = a.accom_detail %>
-			<% if d.accessible=="Y" %>
-				<%= a.name %>. <%= a.gu %>
-				<%=link_to '상세보기', accomodation_path(a.id), class:"btn btn-light" %>
-				<br>
-			<% end %>
-		<% end %>
-	<% elsif @accessible=="N" && @parking=="Y" && @isflat=="N" && @elevator=="N" %><!--13NYNN--!>
-		<% @accoms.each do |a| %>
-			<% d = a.accom_detail %>
-			<% if d.parking=="Y" %>
-				<%= a.name %>. <%= a.gu %>
-				<%=link_to '상세보기', accomodation_path(a.id), class:"btn btn-light" %>
-				<br>
-			<% end %>
-		<% end %>
-	<% elsif @accessible=="N" && @parking=="N" && @isflat=="Y" && @elevator=="N" %><!--14NNYN--!>
-		<% @accoms.each do |a| %>
-			<% d = a.accom_detail %>
-			<% if d.isflat=="Y" %>
-				<%= a.name %>. <%= a.gu %>
-				<%=link_to '상세보기', accomodation_path(a.id), class:"btn btn-light" %>
-				<br>
-			<% end %>
-		<% end %>
-	<% elsif @accessible=="N" && @parking=="N" && @isflat=="N" && @elevator=="Y" %><!--15NNNY--!>
-		<% @accoms.each do |a| %>
-			<% d = a.accom_detail %>
-			<% if d.elevator=="Y" %>
-				<%= a.name %>. <%= a.gu %>
-				<%=link_to '상세보기', accomodation_path(a.id), class:"btn btn-light" %>
-				<br>
-			<% end %>
-		<% end %>
-	<% else @accessible=="N" && @parking=="N" && @isflat=="N" && @elevator=="N" %><!--16NNNN--!>
-		<% @accoms.each do |a| %>
-			<% d = a.accom_detail %>
-			<%= a.name %>. <%= a.gu %>
-			<%=link_to '상세보기', accomodation_path(a.id), class:"btn btn-light" %>
-			<br>
-		<% end %>
-	<% end %>
+		</tbody>
+	</table>
 </div>

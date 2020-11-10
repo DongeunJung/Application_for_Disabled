@@ -1,6 +1,6 @@
-<h1>Histories#index</h1>
-
 <div class="container">
+	<%= link_to '기록삭제', history_path("destroy_all"), method:"delete", :data=>{:confirm=>'Are you sure?'} %>
+	<hr>
 	<% @his.each do |h| %>
 		<% info = Restr.find_by(seq:h.seq) %>
 		<% type = "restr" %>
@@ -11,15 +11,14 @@
 		
 		<%= link_to '삭제', history_path(h.id), method:"delete", class:"btn btn-warning", style:"padding:2px"	 %>
 		
-		<%= h.seq %>
+		<% if type=="restr" %>
+			<%= link_to '상세보기', restaurant_path(h.realid), class:"btn btn-light", style:"padding:2px" %>
+		<% else %>
+			<%= link_to '상세보기', accomodation_path(h.realid), class:"btn btn-light", style:"padding:2px" %>
+		<% end %>
+		
 		<%= info.name %>
 		<%= info.gu %>
-		
-		<% if type=="restr" %>
-			<%= link_to '자세히보기', restaurant_path(h.realid), class:"btn btn-light", style:"padding:2px" %>
-		<% else %>
-			<%= link_to '자세히보기', accomodation_path(h.realid), class:"btn btn-light", style:"padding:2px" %>
-		<% end %>
 		
 		<hr>
 	<% end %>
