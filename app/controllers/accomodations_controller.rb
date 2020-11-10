@@ -42,7 +42,11 @@ class AccomodationsController < ApplicationController
 	end
 	
 	def show
-		accom = Accom.find(params[:id])
-		History.create(member_id:session[:user_id], seq:accom.seq, realid:accom.id)
+		accom = Accom.find_by(id:params[:id])
+		if accom.nil?
+			redirect_to accomodations_path
+		else
+			History.create(member_id:session[:user_id], seq:accom.seq, realid:accom.id)
+		end
 	end
 end

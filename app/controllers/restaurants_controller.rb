@@ -42,7 +42,11 @@ class RestaurantsController < ApplicationController
 	end
 	
 	def show
-		restr = Restr.find(params[:id])
-		History.create(member_id:session[:user_id], seq:restr.seq, realid:restr.id)
+		restr = Restr.find_by(id:params[:id])
+		if restr.nil?
+			redirect_to restaurants_path
+		else
+			History.create(member_id:session[:user_id], seq:restr.seq, realid:restr.id)
+		end
 	end
 end
