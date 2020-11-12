@@ -31,4 +31,17 @@ class MembersController < ApplicationController
 		end
 	end
 	
+	def update
+		member = Member.find(params[:id])
+		detail = member.member_detail
+		
+		detail.wheelchair = params[:wheelchair]
+		detail.vehicle = params[:vehicle]
+		detail.gender = params[:gender]
+		detail.address = params[:address]
+		
+		detail.save
+		
+		redirect_to member_path
+	end
 end

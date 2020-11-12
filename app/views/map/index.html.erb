@@ -4,9 +4,24 @@
 		<meta charset="utf-8">
 		<title>주소로 장소 표시하기</title>
 		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7adb1d767626cddc015320fe24791812&libraries=services"></script>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 	</head>
 	<body>
-		<label><%=params[:address]%></label>
+		<p>
+		<form action="/map">
+			<div class="input-group mb-3">
+				<input type="text" class="form-control" name="address" value="<%=params[:address]%>">
+				<div class="input-group-append">
+					<input type="submit" class="btn btn-outline-secondary" value="검색">
+				</div>
+			</div>
+		</form>
+		</p>
+		
 		<p style="margin-top:-12px">
 		<em class="link">
 			<a href="javascript:void(0);" onclick="window.open('http://fiy.daum.net/fiy/map/CsGeneral.daum', '_blank', 'width=981, height=650')">
@@ -54,6 +69,5 @@
 		} 
 		});    
 		</script>
-		
 	</body>
 </html>

@@ -1,4 +1,5 @@
 class MapController < ApplicationController
-  def index
-  end
+	def index
+		@address = params[:address]
+	end
 end
