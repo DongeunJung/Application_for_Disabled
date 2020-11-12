@@ -88,7 +88,7 @@
 					<% if !session[:user_id].nil? %>
 						<!--<%= image_tag "/person-outline.svg", style:"width:20px" %>--!>
 						<li class="nav-item">
-							<%= link_to '마이페이지', member_path(session[:user_id]), class:"nav-link" %>
+							<%= link_to '나의정보', member_path(session[:user_id]), class:"nav-link" %>
 						</li>
 					<% else %>
 						<!--<%= image_tag "/person-add-outline.svg", style:"width:20px" %>--!>

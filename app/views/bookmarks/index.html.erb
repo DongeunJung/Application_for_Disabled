@@ -13,7 +13,7 @@
 		
 		<% if !restr.nil? %>
 			<%= link_to '삭제', bookmark_path(b.id, :type=>"restr"), method:"delete", class:"btn btn-warning", style:"padding:2px" %>
-			<%= b.seq %>
+		
 			<%= restr.name %>
 			<%= restr.gu %>
 			<%= link_to '자세히보기', restaurant_path(restr.id), class:"btn btn-light", style:"padding:2px" %>
@@ -21,7 +21,7 @@
 		
 		<% if !accom.nil? %>
 			<%= link_to '삭제', bookmark_path(b.id, :type=>"accom"), method:"delete", class:"btn btn-warning", style:"padding:2px" %>
-			<%= b.seq %>
+		
 			<%= accom.name %>
 			<%= accom.gu %>
 			<%= link_to '자세히보기', accomodation_path(accom.id), class:"btn btn-light", style:"padding:2px" %>

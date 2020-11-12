@@ -7,6 +7,11 @@
 
 <div class="container">
 	<%= form_tag accomodations_filter_path do %>
+	
+		<% flash.each do |name, msg| %>
+			<div class="alert alert-warning"><%=msg%></div>
+		<% end %>
+		
 		<div class="input-group">
 			<div class="input-group-prepend">
 				<div class="input-group-text">
@@ -40,6 +45,7 @@
 		<div class="input-group mb-3">
 			<input type="text" class="form-control" name="gu" placeholder="ex)강남구">
 			<div class="input-group-append">
+				<input type="submit" name="forme" class="btn btn-outline-secondary" value="나를 위한 추천">
 				<input type="submit" class="btn btn-outline-secondary" value="적용">
 			</div>
 		</div>
@@ -76,7 +82,40 @@
 		</tbody>
 	</table>
 	
-	<ul class="pagination justify-content-center">
+	<!--<ul class="pagination justify-content-center">
 		<%= will_paginate @accoms %>
+	</ul>-->
+	
+	<ul class="pagination justify-content-center">
+		<li class="page-item">
+			<%=link_to '1', accomodations_path(:page=>1), class:"page-link"%>
+		</li>
+		<li class="page-item">
+			<%=link_to '2', accomodations_path(:page=>2), class:"page-link"%>
+		</li>
+		<li class="page-item">
+			<%=link_to '3', accomodations_path(:page=>3), class:"page-link"%>
+		</li>
+		<li class="page-item">
+			<%=link_to '4', accomodations_path(:page=>4), class:"page-link"%>
+		</li>
+		<li class="page-item">
+			<%=link_to '5', accomodations_path(:page=>5), class:"page-link"%>
+		</li>
+		<li class="page-item">
+			<%=link_to '6', accomodations_path(:page=>6), class:"page-link"%>
+		</li>
+		<li class="page-item">
+			<%=link_to '7', accomodations_path(:page=>7), class:"page-link"%>
+		</li>
+		<li class="page-item">
+			<%=link_to '8', accomodations_path(:page=>8), class:"page-link"%>
+		</li>
+		<li class="page-item">
+			<%=link_to '9', accomodations_path(:page=>9), class:"page-link"%>
+		</li>
+		<li class="page-item">
+			<%=link_to '10', accomodations_path(:page=>10), class:"page-link"%>
+		</li>
 	</ul>
 </div>

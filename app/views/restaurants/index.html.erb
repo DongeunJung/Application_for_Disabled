@@ -7,26 +7,11 @@
 
 <div class="container">
 	<%= form_tag restaurants_filter_path do %>
-	<!--
-		<div class="row">
-			<div class="col bg-success">
-				<input type="checkbox" id="accessible" name="accessible" value="Bike">
-				<label for="accessible"> 주출입구 접근로 여부</label>
-			</div>
-			<div class="col bg-warning">
-				<input type="checkbox" id="parking" name="parking" value="Car">
-				<label for="parking"> 장애인 전용 주차구역 여부</label>
-			</div>
-			<div class="col bg-success">
-				<input type="checkbox" id="isflat" name="isflat" value="Boat">
-				<label for="isflat"> 주출입구 높이차이 제거 여부</label>
-			</div>
-			<div class="col bg-warning">
-				<input type="checkbox" id="elevator" name="elevator" value="Boat">
-				<label for="elevator"> 장애인용 승강기 여부</label>
-			</div>
-		</div>
-	-->
+	
+		<% flash.each do |name, msg| %>
+			<div class="alert alert-warning"><%=msg%></div>
+		<% end %>
+
 		<div class="input-group">
 			<div class="input-group-prepend">
 				<div class="input-group-text">
@@ -60,6 +45,7 @@
 		<div class="input-group mb-3">
 			<input type="text" class="form-control" name="gu" placeholder="ex)강남구">
 			<div class="input-group-append">
+				<input type="submit" name="forme" class="btn btn-outline-secondary" value="나를 위한 추천">
 				<input type="submit" class="btn btn-outline-secondary" value="적용">
 			</div>
 		</div>
@@ -98,9 +84,9 @@
 		</tbody>
 	</table>
 	
-	<%= will_paginate @restrs %>
+	<!--<%= will_paginate @restrs %>--!>
 	
-	<!--<ul class="pagination justify-content-center">
+	<ul class="pagination justify-content-center">
 		<li class="page-item">
 			<%=link_to '1', restaurants_path(:page=>1), class:"page-link"%>
 		</li>
@@ -134,5 +120,5 @@
 		<li class="page-item">
 			<%=link_to '11', restaurants_path(:page=>11), class:"page-link"%>
 		</li>
-	</ul>-->
+	</ul>
 </div>

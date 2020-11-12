@@ -10,7 +10,6 @@
 	<% @restr_bookmarks.each do |b| %>
 		<% restr = Restr.find_by(seq:b.seq) %>
 		<%= link_to '삭제', bookmark_path(restr.id, :type=>"restr"), method:"delete", class:"btn btn-warning", style:"padding:2px" %>
-		<%= b.seq %>
 		
 		<%= restr.name %>
 		<%= restr.gu %>

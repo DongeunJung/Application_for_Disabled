@@ -4,16 +4,35 @@ class AccomodationsController < ApplicationController
 	end
 	
 	def filter
+		if params[:forme]
+			if session[:user_id].nil?
+				flash[:notice] = '추천을 받으려면 로그인을 해주세요'
+				redirect_to accomodations_path
+				return false
+			else
+				member = Member.find(session[:user_id])
+				detail = member.member_detail
+				redirect_to :root
+				return false
+			end
+		end
+	
 		@gu = params[:gu]
 		@accessible = params[:accessible]
 		@parking = params[:parking]
 		@isflat = params[:isflat]
 		@elevator = params[:elevator]
 		@accoms;
+		
 		if !@gu.nil? && !@gu.empty?
 			@accoms = Accom.where(gu:@gu)
 		else
-			@accoms = Accom.all
+			if @accessible!="on" && @parking!="on" && @isflat!="on" && @elevator!="on"
+				flash[:notice] = '원하는 조건을 선택해주세요'
+				redirect_to accomodations_path
+			else
+				@accoms = Accom.all
+			end
 		end
 		
 		if @accessible == "on"

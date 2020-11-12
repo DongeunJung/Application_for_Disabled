@@ -11,14 +11,14 @@
 		
 		<%= link_to '삭제', history_path(h.id), method:"delete", class:"btn btn-warning", style:"padding:2px"	 %>
 		
+		<%= info.name %>
+		<%= info.gu %>
+		
 		<% if type=="restr" %>
 			<%= link_to '상세보기', restaurant_path(h.realid), class:"btn btn-light", style:"padding:2px" %>
 		<% else %>
 			<%= link_to '상세보기', accomodation_path(h.realid), class:"btn btn-light", style:"padding:2px" %>
 		<% end %>
-		
-		<%= info.name %>
-		<%= info.gu %>
 		
 		<hr>
 	<% end %>
