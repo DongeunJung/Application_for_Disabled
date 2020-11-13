@@ -12,7 +12,18 @@ class AccomodationsController < ApplicationController
 			else
 				member = Member.find(session[:user_id])
 				detail = member.member_detail
-				redirect_to :root
+				@accessible = "N"
+				@parking = "N"
+				@isflat = "N"
+				@elevator = "N"
+				if detail.wheelchair
+					@isflat = "Y"
+					@elevator = "Y"
+				end
+				if detail.vehicle
+					@parking = "Y"
+				end
+				@accoms = Accom.all
 				return false
 			end
 		end
