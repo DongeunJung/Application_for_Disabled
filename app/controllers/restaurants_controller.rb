@@ -71,10 +71,6 @@ class RestaurantsController < ApplicationController
 		end	
 	end
 	
-	def forme
-	
-	end
-	
 	def show
 		restr = Restr.find_by(id:params[:id])
 		if restr.nil?
